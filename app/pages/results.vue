@@ -1,0 +1,6 @@
+<template>
+    <div>
+        <h1>Results</h1>
+        <p>This is the results page.</p>
+    </div>
+</template>
