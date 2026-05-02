@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="ingredient in ingredients" :key="ingredient.id">
+                <tr v-for="ingredient in pantry.ingredients" :key="ingredient.id">
                     <!-- TODO: Remove ID column before deployment, just for testing purposes right now -->
                     <td>{{ ingredient.id  }}</td>
                     <td v-if="editingId === ingredient.id">
@@ -64,7 +64,9 @@
 
 <script setup>   
 import { ref } from 'vue'
+import { usePantryStore } from '~/stores/pantry'
 
+const pantry = usePantryStore()
 const newName = ref('')
 const newQuantity = ref(0)
 const newUnit = ref('')
@@ -81,14 +83,17 @@ const units = ['cup',
     'gallon', 
     'liter'
 ]
-const ingredients = ref([
-    {id: 1, name: 'Flour', quantity: 5, unit: 'lbs', cost: 2.50},
-    {id: 2, name: 'Sugar', quantity: 3, unit: 'lbs', cost: 1.80},
-    {id: 3, name: 'Butter', quantity: 2, unit: 'lbs', cost: 3.00},
-    {id: 4, name: 'Eggs', quantity: 12, unit: 'each', cost: 2.00}
-    ]);
+
 const editingId = ref(null)
 const editDraft = ref({ name: '', quantity: 0, unit: '', cost: 0 })
+
+function resetForm() {
+  // Reset
+    newName.value = ''
+    newQuantity.value = 0
+    newUnit.value = ''
+    newCost.value = 0
+}
 
 function addIngredient() {
   // Validate
@@ -97,24 +102,13 @@ function addIngredient() {
     return
     }
 
-  // Add to the array
-    ingredients.value.push({
-        id: Date.now()+Math.random(),  // Simple unique ID
-        name: newName.value.trim(),  // .trim() removes leading/trailing spaces
-        quantity: newQuantity.value,
-        unit: newUnit.value,
-        cost: newCost.value
-    })
-
-  // Reset
-    newName.value = ''
-    newQuantity.value = 0
-    newUnit.value = ''
-    newCost.value = 0
+    pantry.addIngredient(newName.value, newQuantity.value, newUnit.value, newCost.value)
+    resetForm()
 }
 
+
 function removeIngredient(idToRemove) {
-    ingredients.value = ingredients.value.filter(ingredient => ingredient.id !== idToRemove)
+    pantry.removeIngredient(idToRemove)
     }
 
 function editIngredient(ingredient) {
@@ -123,16 +117,12 @@ function editIngredient(ingredient) {
 }
 
 function saveEdit(){
-    if (!editDraft.value.name.trim() || !editDraft.value.unit || editDraft.value.quantity <= 0 || editDraft.value.cost <= 0) {
+    if (!editDraft.value.name.trim()|| !editDraft.value.unit || editDraft.value.quantity <= 0 || editDraft.value.cost <= 0) {
         alert('Please fill in all fields with valid values before saving')
         return
     }   
-
-    ingredients.value = ingredients.value.map(ingredient => 
-        ingredient.id === editingId.value 
-        ? { ...editDraft.value, name:editDraft.value.name.trim() }  // Update with trimmed name
-        : ingredient
-    )
+    
+    pantry.updateIngredient(editingId.value, editDraft.value.name, editDraft.value.quantity, editDraft.value.unit, editDraft.value.cost)
 
     // Reset editing state
     editingId.value = null
