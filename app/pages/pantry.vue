@@ -62,9 +62,10 @@
 </template>
 
 
-<script setup>   
+<script setup lang="ts">   
 import { ref } from 'vue'
 import { usePantryStore } from '~/stores/pantry'
+import type { Ingredient } from '~/stores/pantry'
 
 const pantry = usePantryStore()
 const newName = ref('')
@@ -84,7 +85,7 @@ const units = ['cup',
     'liter'
 ]
 
-const editingId = ref(null)
+const editingId = ref<number|null>(null)
 const editDraft = ref({ name: '', quantity: 0, unit: '', cost: 0 })
 
 function resetForm() {
@@ -107,16 +108,18 @@ function addIngredient() {
 }
 
 
-function removeIngredient(idToRemove) {
+function removeIngredient(idToRemove:number) {
     pantry.removeIngredient(idToRemove)
     }
 
-function editIngredient(ingredient) {
+function editIngredient(ingredient:Ingredient) {
     editingId.value = ingredient.id
     editDraft.value = { ...ingredient }  // Create a copy for editing    
 }
 
 function saveEdit(){
+    if (editingId.value === null) return
+    
     if (!editDraft.value.name.trim()|| !editDraft.value.unit || editDraft.value.quantity <= 0 || editDraft.value.cost <= 0) {
         alert('Please fill in all fields with valid values before saving')
         return
