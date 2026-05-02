@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, onMounted } from 'vue'
-interface Ingredient {
+export interface Ingredient {
     id: number,
     name: string,
     quantity: number,
