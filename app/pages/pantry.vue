@@ -22,8 +22,7 @@
             </thead>
             <tbody>
                 <tr v-for="ingredient in pantry.ingredients" :key="ingredient.id">
-                    <!-- TODO: Remove ID column before deployment, just for testing purposes right now -->
-                    <td>{{ ingredient.id  }}</td>
+
                     <td v-if="editingId === ingredient.id">
                         <input type="text" v-model="editDraft.name" />
                     </td>

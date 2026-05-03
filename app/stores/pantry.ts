@@ -10,12 +10,6 @@ export interface Ingredient {
 
 export const usePantryStore = defineStore('pantry', () => {
     
-    const seedData = [
-        {id: 1, name: 'Flour', quantity: 5, unit: 'lbs', cost: 2.50},
-        {id: 2, name: 'Sugar', quantity: 3, unit: 'lbs', cost: 1.80},
-        {id: 3, name: 'Butter', quantity: 2, unit: 'lbs', cost: 3.00},
-        {id: 4, name: 'Eggs', quantity: 12, unit: 'each', cost: 2.00}
-        ];
 
 
     function loadFromLocalStorage() {
@@ -45,9 +39,6 @@ export const usePantryStore = defineStore('pantry', () => {
         const loaded = loadFromLocalStorage()
         if (loaded) {
             ingredients.value = loaded
-        } else if (seedData.length > 0) {
-            ingredients.value = [...seedData]
-            saveToLocalStorage()
         }
     })
 
