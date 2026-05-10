@@ -9,7 +9,7 @@ export interface Ingredient {
 }
 
 export const usePantryStore = defineStore('pantry', () => {
-    
+    const ingredients = ref<Ingredient[]>([])
 
 
     function loadFromLocalStorage() {
@@ -33,7 +33,7 @@ export const usePantryStore = defineStore('pantry', () => {
         localStorage.setItem('pantry-ingredients', JSON.stringify(ingredients.value))
     }
 
-    const ingredients = ref<Ingredient[]>([])
+
 
     onMounted(() => {
         const loaded = loadFromLocalStorage()

@@ -135,9 +135,6 @@ function cancelEdit() {
     editingId.value = null
     editDraft.value = { name: '', quantity: 0, unit: '', cost: 0 }
 }
-
-
-
 </script>
 
 <style>
