@@ -4,7 +4,7 @@
         <p>Add Ingredients to Pantry.</p>
         <div>
             <label for="ingredient-name">Ingredient Name: </label>
-            <input id="ingredient-name" type="text" v-model="newName" placeholder="Ingredient Name" />
+            <input id="ingredient-name" type="text" v-model="newName" list="fao-options" placeholder="Ingredient Name" />
         </div>
 
         <div>
@@ -40,7 +40,7 @@
                 <tr v-for="ingredient in pantry.ingredients" :key="ingredient.id">
 
                     <td v-if="editingId === ingredient.id">
-                        <input type="text" v-model="editDraft.name" />
+                        <input type="text" v-model="editDraft.name" list="fao-options"/>
                     </td>
                     <td v-else>{{ ingredient.name }}</td>
 
@@ -73,7 +73,12 @@
                 </tr>
             </tbody>
         </table>
+        <datalist id="fao-options">
+            <option v-for="d in densities" :value="d.name" :key="d.name"></option>
+        </datalist>
     </div>
+    
+
 </template>
 
 
@@ -81,6 +86,7 @@
 import { ref } from 'vue'
 import { usePantryStore } from '~/stores/pantry'
 import type { Ingredient } from '~/stores/pantry'
+import densities from '~/data/densities.json'
 
 const pantry = usePantryStore()
 const newName = ref('')
