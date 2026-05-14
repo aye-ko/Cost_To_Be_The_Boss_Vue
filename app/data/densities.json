@@ -1,0 +1,2554 @@
+[
+  {
+    "name":"Apple juice, canned or bottled, unsweetened, with added ascorbic acid",
+    "density":1.0433966933
+  },
+  {
+    "name":"Apple juice, canned or bottled, unsweetened, without added ascorbic acid",
+    "density":1.0433966933
+  },
+  {
+    "name":"Beverages, fruit juice drink, reduced sugar, with vitamin E added",
+    "density":1.0430973612
+  },
+  {
+    "name":"Carbonated beverage, tonic water",
+    "density":1.0210548816
+  },
+  {
+    "name":"Cranberry juice cocktail, bottled",
+    "density":1.051653269
+  },
+  {
+    "name":"Cranberry-apple juice drink, bottled",
+    "density":1.0635267737
+  },
+  {
+    "name":"Fruit drinks, low calories, undiluted",
+    "density":1.03
+  },
+  {
+    "name":"Fruit drinks, undiluted",
+    "density":1.12
+  },
+  {
+    "name":"Fruit juice",
+    "density":1.06
+  },
+  {
+    "name":"Fruit juice drinks",
+    "density":1.04
+  },
+  {
+    "name":"Fruit juice drinks, ready to drink",
+    "density":1.04
+  },
+  {
+    "name":"Grape juice",
+    "density":1.054
+  },
+  {
+    "name":"Grape juice, canned or bottled, unsweetened, with added ascorbic acid",
+    "density":1.0635267737
+  },
+  {
+    "name":"Grape juice, canned or bottled, unsweetened, without added ascorbic acid",
+    "density":1.0635267737
+  },
+  {
+    "name":"Guanabana nectar, canned",
+    "density":1.0176790813
+  },
+  {
+    "name":"Guava nectar, canned",
+    "density":1.0226679488
+  },
+  {
+    "name":"Ice, crushed",
+    "density":0.72
+  },
+  {
+    "name":"Juice, apple and grape blend, with added ascorbic acid",
+    "density":1.0481111731
+  },
+  {
+    "name":"Juice, apple, grape and pear blend, with added ascorbic acid and calcium",
+    "density":1.049657722
+  },
+  {
+    "name":"Lemonade, frozen concentrate, pink",
+    "density":1.23723914
+  },
+  {
+    "name":"Lemonade, frozen concentrate, white",
+    "density":1.1673451063
+  },
+  {
+    "name":"Lime juice cordial, undiluted",
+    "density":1.102
+  },
+  {
+    "name":"Mango nectar, canned",
+    "density":0.9977236113
+  },
+  {
+    "name":"Meal supplement drink, NESTLE, SUPLIGEN, canned, peanut flavor",
+    "density":1.0376345513
+  },
+  {
+    "name":"Orange juice",
+    "density":1.038
+  },
+  {
+    "name":"Orange juice with calcium",
+    "density":1.038
+  },
+  {
+    "name":"Orange juice, canned, unsweetened",
+    "density":1.0429061213
+  },
+  {
+    "name":"Orange soda (sweetened with sugar)",
+    "density":1.029
+  },
+  {
+    "name":"QUAKER OATS, PROPEL Fitness Water, fruit-flavored, non-carbonated",
+    "density":1.0002180451
+  },
+  {
+    "name":"Soft drinks, cola type",
+    "density":1.04
+  },
+  {
+    "name":"Soft drinks, diet soda",
+    "density":0.988
+  },
+  {
+    "name":"Soft drinks, lemonade type",
+    "density":1.02
+  },
+  {
+    "name":"Soft drinks, lucozade type",
+    "density":1.07
+  },
+  {
+    "name":"Soy drink",
+    "density":1.08
+  },
+  {
+    "name":"Soya + milk + sugar",
+    "density":1.05
+  },
+  {
+    "name":"Soya + sugar",
+    "density":1.05
+  },
+  {
+    "name":"Sports drink, COCA-COLA, POWERADE, lemon-lime flavored, ready-to-drink",
+    "density":1.0276069276
+  },
+  {
+    "name":"Sports drink, PEPSICO QUAKER GATORADE, GATORADE, original, fruit-flavored, ready-to-drink",
+    "density":1.0276069276
+  },
+  {
+    "name":"Tamarind nectar, canned",
+    "density":1.0126902138
+  },
+  {
+    "name":"Water",
+    "density":1.0
+  },
+  {
+    "name":"Water, ice, 0\u00a0\u00b0C",
+    "density":0.916
+  },
+  {
+    "name":"Water, ice, 4\u00a0\u00b0C",
+    "density":0.999
+  },
+  {
+    "name":"Water, liquid, 20\u00a0\u00b0C",
+    "density":0.998
+  },
+  {
+    "name":"Water, mineralwater",
+    "density":1.04
+  },
+  {
+    "name":"Coffee, brewed",
+    "density":1.0
+  },
+  {
+    "name":"Coffee, expresso",
+    "density":1.0
+  },
+  {
+    "name":"Coffee, green (beans)",
+    "density":0.62
+  },
+  {
+    "name":"Coffee, powder (nescaf\u00e9)",
+    "density":0.25
+  },
+  {
+    "name":"Coffee, roasted (beans)",
+    "density":0.38
+  },
+  {
+    "name":"Miso, broth, ready to drink",
+    "density":1.06
+  },
+  {
+    "name":"Powder, chocolate drinking powder",
+    "density":0.55
+  },
+  {
+    "name":"Powders",
+    "density":0.25
+  },
+  {
+    "name":"Tea, black (tea leaves)",
+    "density":0.48
+  },
+  {
+    "name":"Tea, herbal, Ciakimora (leaves + water)",
+    "density":1.0
+  },
+  {
+    "name":"Tea, herbal, Ciakimora leaves ",
+    "density":0.23
+  },
+  {
+    "name":"Tea, flakes",
+    "density":0.38
+  },
+  {
+    "name":"Tea, powdered",
+    "density":0.43
+  },
+  {
+    "name":"Tea, liquid",
+    "density":1.0
+  },
+  {
+    "name":"Tea, only (tea leaves + water)",
+    "density":1.0
+  },
+  {
+    "name":"Tea, ready-to-drink, ARIZONA iced tea, with lemon flavor",
+    "density":1.033693346
+  },
+  {
+    "name":"Tea, ready-to-drink, LIPTON BRISK iced tea, with lemon flavor",
+    "density":1.031697799
+  },
+  {
+    "name":"Tea, ready-to-drink, NESTLE, COOL NESTEA ice tea lemon flavor",
+    "density":1.033693346
+  },
+  {
+    "name":"Beer, lager",
+    "density":1.005
+  },
+  {
+    "name":"Beer, light",
+    "density":1.00024284
+  },
+  {
+    "name":"Beer, light, BUD LIGHT",
+    "density":1.0004674885
+  },
+  {
+    "name":"Beer, light, BUDWEISER SELECT",
+    "density":0.9968755039
+  },
+  {
+    "name":"Beer, light, MICHELOB ULTRA",
+    "density":0.9958777304
+  },
+  {
+    "name":"Beer, local (non specific)",
+    "density":0.9599999785
+  },
+  {
+    "name":"Beer, pale ale",
+    "density":1.003
+  },
+  {
+    "name":"Beer, pilsner",
+    "density":1.007
+  },
+  {
+    "name":"Beer, pilsner, 4\u00a0\u00b0C",
+    "density":1.008
+  },
+  {
+    "name":"Beer, regular, all",
+    "density":1.0080403857
+  },
+  {
+    "name":"Beer, regular, BUDWEISER",
+    "density":1.0047579145
+  },
+  {
+    "name":"Beer, stout, bottled",
+    "density":1.014
+  },
+  {
+    "name":"Beer, stout, extra",
+    "density":1.002
+  },
+  {
+    "name":"Beer, strong ale",
+    "density":1.018
+  },
+  {
+    "name":"Beer, type bitter or brown ale",
+    "density":1.008
+  },
+  {
+    "name":"Beer, type draught",
+    "density":1.004
+  },
+  {
+    "name":"Beer, type Keg",
+    "density":1.001
+  },
+  {
+    "name":"Beer, type mild, draught",
+    "density":1.009
+  },
+  {
+    "name":"Beer, commercial (white cap etc.)",
+    "density":0.9700000286
+  },
+  {
+    "name":"Alcohol, ethyl",
+    "density":0.789
+  },
+  {
+    "name":"Amaretto",
+    "density":1.1
+  },
+  {
+    "name":"Amaretto di Saranno",
+    "density":1.08
+  },
+  {
+    "name":"Anisette",
+    "density":1.175
+  },
+  {
+    "name":"Apricot brandy",
+    "density":1.06
+  },
+  {
+    "name":"Apricot liquor",
+    "density":1.09
+  },
+  {
+    "name":"Bailey's irish cream",
+    "density":1.05
+  },
+  {
+    "name":"Benedictine",
+    "density":1.04
+  },
+  {
+    "name":"Benedictine D.O.M.",
+    "density":1.07
+  },
+  {
+    "name":"Blackberry brandy",
+    "density":1.06
+  },
+  {
+    "name":"Blackberry liquor",
+    "density":1.1
+  },
+  {
+    "name":"Blue curacao",
+    "density":1.11
+  },
+  {
+    "name":"Brandy",
+    "density":1.04
+  },
+  {
+    "name":"Campari",
+    "density":1.06
+  },
+  {
+    "name":"Cherry brandy",
+    "density":1.06
+  },
+  {
+    "name":"Cherry liqueur",
+    "density":1.12
+  },
+  {
+    "name":"Coffee liquor",
+    "density":1.13
+  },
+  {
+    "name":"Cointreau",
+    "density":1.04
+  },
+  {
+    "name":"Cr\u00e8me de almond",
+    "density":1.16
+  },
+  {
+    "name":"Cr\u00e8me de banana",
+    "density":1.14
+  },
+  {
+    "name":"Cr\u00e8me de cacao",
+    "density":1.14
+  },
+  {
+    "name":"Creme de cassis",
+    "density":1.18
+  },
+  {
+    "name":"Cr\u00e8me de noyaux",
+    "density":1.165
+  },
+  {
+    "name":"Drambuie",
+    "density":1.08
+  },
+  {
+    "name":"Frangelico",
+    "density":1.08
+  },
+  {
+    "name":"Galliano",
+    "density":1.11
+  },
+  {
+    "name":"Green chartreuse",
+    "density":1.01
+  },
+  {
+    "name":"Green cr\u00e8me de menthe",
+    "density":1.12
+  },
+  {
+    "name":"Kummel",
+    "density":1.04
+  },
+  {
+    "name":"Liqueur",
+    "density":1.15
+  },
+  {
+    "name":"Liqueur, type advocaat",
+    "density":1.093
+  },
+  {
+    "name":"Liqueur, type cherry brandy",
+    "density":1.093
+  },
+  {
+    "name":"Liqueur, type curacao",
+    "density":1.052
+  },
+  {
+    "name":"Midori melon liquor",
+    "density":1.05
+  },
+  {
+    "name":"Orange curacao",
+    "density":1.08
+  },
+  {
+    "name":"Parfrait d'amour",
+    "density":1.13
+  },
+  {
+    "name":"Peach brandy",
+    "density":1.06
+  },
+  {
+    "name":"Peach liqueur",
+    "density":1.04
+  },
+  {
+    "name":"Peppermint schnapps",
+    "density":1.04
+  },
+  {
+    "name":"Port",
+    "density":1.026
+  },
+  {
+    "name":"Rock and Rye",
+    "density":1.05
+  },
+  {
+    "name":"Sherry, dry",
+    "density":0.988
+  },
+  {
+    "name":"Sherry, medium",
+    "density":0.998
+  },
+  {
+    "name":"Sherry, sweet",
+    "density":1.009
+  },
+  {
+    "name":"Sloe gin",
+    "density":1.04
+  },
+  {
+    "name":"Southern comfort",
+    "density":0.97
+  },
+  {
+    "name":"Spirits, 40% alcohol",
+    "density":0.95
+  },
+  {
+    "name":"Spirits, 45% alcohol (whiskey)",
+    "density":0.939
+  },
+  {
+    "name":"Spirits, 70% alcohol",
+    "density":0.885
+  },
+  {
+    "name":"Spirits, 75% alcohol",
+    "density":0.873
+  },
+  {
+    "name":"Strawberry liqueur",
+    "density":1.12
+  },
+  {
+    "name":"Tia Maria",
+    "density":1.09
+  },
+  {
+    "name":"Triple sec",
+    "density":1.09
+  },
+  {
+    "name":"Tuaca",
+    "density":0.98
+  },
+  {
+    "name":"Vermouth, dry",
+    "density":1.005
+  },
+  {
+    "name":"Vermouth, sweet",
+    "density":1.046
+  },
+  {
+    "name":"White cr\u00e8me de cacao",
+    "density":1.14
+  },
+  {
+    "name":"White cr\u00e8me de menthe",
+    "density":1.12
+  },
+  {
+    "name":"Yellow chartreuse",
+    "density":1.06
+  },
+  {
+    "name":"Cider, dry",
+    "density":1.007
+  },
+  {
+    "name":"Cider, sweet",
+    "density":1.012
+  },
+  {
+    "name":"Cider, vintage",
+    "density":1.017
+  },
+  {
+    "name":"Wine, red",
+    "density":0.998
+  },
+  {
+    "name":"Wine, rose, medium",
+    "density":1.003
+  },
+  {
+    "name":"Wine, table, all",
+    "density":0.9925951167
+  },
+  {
+    "name":"Wine, table, red",
+    "density":0.9916726523
+  },
+  {
+    "name":"Wine, table, red, Barbera",
+    "density":0.9920737189
+  },
+  {
+    "name":"Wine, table, red, Burgundy",
+    "density":0.996547664
+  },
+  {
+    "name":"Wine, table, red, Cabernet Franc",
+    "density":0.9909254479
+  },
+  {
+    "name":"Wine, table, red, Cabernet Sauvignon",
+    "density":0.9918014154
+  },
+  {
+    "name":"Wine, table, red, Carignane",
+    "density":0.9927846325
+  },
+  {
+    "name":"Wine, table, red, Claret",
+    "density":0.99370077
+  },
+  {
+    "name":"Wine, table, red, Gamay",
+    "density":0.9915740007
+  },
+  {
+    "name":"Wine, table, red, Lemberger",
+    "density":0.9933379433
+  },
+  {
+    "name":"Wine, table, red, Merlot",
+    "density":0.9912549473
+  },
+  {
+    "name":"Wine, table, red, Mouvedre",
+    "density":0.9909886402
+  },
+  {
+    "name":"Wine, table, red, Petite Sirah",
+    "density":0.9937943793
+  },
+  {
+    "name":"Wine, table, red, Pinot Noir",
+    "density":0.9905561558
+  },
+  {
+    "name":"Wine, table, red, Sangiovese",
+    "density":0.9911596871
+  },
+  {
+    "name":"Wine, table, red, Syrah",
+    "density":0.9918101403
+  },
+  {
+    "name":"Wine, table, red, Zinfandel",
+    "density":0.992086191
+  },
+  {
+    "name":"Wine, table, white",
+    "density":0.9925456657
+  },
+  {
+    "name":"Wine, table, white, Chardonnay",
+    "density":0.9891900742
+  },
+  {
+    "name":"Wine, table, white, Chenin Blanc",
+    "density":0.9954760626
+  },
+  {
+    "name":"Wine, table, white, Fume Blanc",
+    "density":0.990015811
+  },
+  {
+    "name":"Wine, table, white, Gewurztraminer",
+    "density":0.9947508332
+  },
+  {
+    "name":"Wine, table, white, late harvest",
+    "density":1.0383752063
+  },
+  {
+    "name":"Wine, table, white, late harvest, Gewurztraminer",
+    "density":1.0290370696
+  },
+  {
+    "name":"Wine, table, white, Muller Thurgau",
+    "density":0.9967910768
+  },
+  {
+    "name":"Wine, table, white, Muscat",
+    "density":1.011014224
+  },
+  {
+    "name":"Wine, table, white, Pinot Blanc",
+    "density":0.9888570332
+  },
+  {
+    "name":"Wine, table, white, Pinot Gris (Grigio)",
+    "density":0.9888296282
+  },
+  {
+    "name":"Wine, table, white, Riesling",
+    "density":0.9979614368
+  },
+  {
+    "name":"Wine, table, white, Sauvignon Blanc",
+    "density":0.9901767533
+  },
+  {
+    "name":"Wine, table, white, Semillon",
+    "density":0.9954142485
+  },
+  {
+    "name":"Wine, white",
+    "density":1.04
+  },
+  {
+    "name":"Wine, white, dry or sparkling",
+    "density":0.995
+  },
+  {
+    "name":"Wine, white, medium",
+    "density":1.005
+  },
+  {
+    "name":"Wine, white, sweet",
+    "density":1.016
+  },
+  {
+    "name":"Milk (at 15.6 C)",
+    "density":1.05
+  },
+  {
+    "name":"Milk (non-fat dry)",
+    "density":0.56
+  },
+  {
+    "name":"Milk (powdered whole)",
+    "density":0.56
+  },
+  {
+    "name":"Milk (powdered)",
+    "density":0.21
+  },
+  {
+    "name":"Milk shake, fruit and other",
+    "density":1.0
+  },
+  {
+    "name":"Milk, acidophilus cultured",
+    "density":1.01
+  },
+  {
+    "name":"Milk, buttermilk",
+    "density":1.022
+  },
+  {
+    "name":"Milk, chocolate milk, skimmed",
+    "density":1.056
+  },
+  {
+    "name":"Milk, cow, whole",
+    "density":1.0399999619
+  },
+  {
+    "name":"Milk, evaporated",
+    "density":1.07
+  },
+  {
+    "name":"Milk, goat, whole",
+    "density":1.08
+  },
+  {
+    "name":"Milk, liquid (whole, semi-skimmed, skimmed)",
+    "density":1.03
+  },
+  {
+    "name":"Milk, liquid, partially skimmed",
+    "density":1.034
+  },
+  {
+    "name":"Milk, liquid, skimmed",
+    "density":1.033
+  },
+  {
+    "name":"Milk, liquid, skimmed",
+    "density":1.036
+  },
+  {
+    "name":"Milk, liquid, whole",
+    "density":1.03
+  },
+  {
+    "name":"Milk, liquid, whole",
+    "density":1.031
+  },
+  {
+    "name":"Butter",
+    "density":0.911
+  },
+  {
+    "name":"Butter, margarine",
+    "density":0.96
+  },
+  {
+    "name":"Buttermilk, dried",
+    "density":0.5
+  },
+  {
+    "name":"Casein",
+    "density":0.58
+  },
+  {
+    "name":"Cheese, emmentaler, grated",
+    "density":0.34
+  },
+  {
+    "name":"Cream, 13% fat",
+    "density":1.013
+  },
+  {
+    "name":"Cream, 38% fat",
+    "density":0.984
+  },
+  {
+    "name":"Cream, 9% fat",
+    "density":1.017
+  },
+  {
+    "name":"Cream, double (about 40-50% fat)",
+    "density":0.94
+  },
+  {
+    "name":"Cream, heavy",
+    "density":0.994
+  },
+  {
+    "name":"Cream, light",
+    "density":1.012
+  },
+  {
+    "name":"Cream, single (about 20% fat)",
+    "density":1.0
+  },
+  {
+    "name":"Cream, sour (cr\u00e8me fraiche about 18% fat)",
+    "density":1.005
+  },
+  {
+    "name":"Cream, sour (cr\u00e8me fraiche about 38% fat)",
+    "density":0.978
+  },
+  {
+    "name":"Cream, whipped",
+    "density":0.496
+  },
+  {
+    "name":"Cream, whipping (about 40% fat)",
+    "density":0.96
+  },
+  {
+    "name":"Ice cream ",
+    "density":0.554
+  },
+  {
+    "name":"Ice cream, dairy",
+    "density":0.61
+  },
+  {
+    "name":"Ice cream, light (formerly ice milk)",
+    "density":0.5553148513
+  },
+  {
+    "name":"Ice cream, light, no sugar added",
+    "density":0.5797242953
+  },
+  {
+    "name":"Ice cream, no sugar added",
+    "density":0.5370077683
+  },
+  {
+    "name":"Ice cream, non dairy",
+    "density":0.51
+  },
+  {
+    "name":"Ice cream, regular",
+    "density":0.5614172123
+  },
+  {
+    "name":"Ice cream, rich",
+    "density":0.6224408224
+  },
+  {
+    "name":"Sour milk, cow, whole",
+    "density":0.9800000191
+  },
+  {
+    "name":"Yoghurt, berry, low fat, artificially sweetened",
+    "density":1.06
+  },
+  {
+    "name":"Yoghurt, fruits",
+    "density":1.06
+  },
+  {
+    "name":"Yoghurt, low fat, fruit",
+    "density":1.08
+  },
+  {
+    "name":"Yoghurt, plain, unsweetened",
+    "density":1.06
+  },
+  {
+    "name":"Yoghurt, plain, unsweetened",
+    "density":1.031
+  },
+  {
+    "name":"Yoghurt, strawberry, low fat",
+    "density":1.08
+  },
+  {
+    "name":"Cooking oil, elianto oil, salad, golden fry, rina",
+    "density":0.8799999952
+  },
+  {
+    "name":"Cooking oil, sima",
+    "density":0.88
+  },
+  {
+    "name":"Cooking oil, tily, chipo, pura",
+    "density":0.88
+  },
+  {
+    "name":"Oil, cod (at 15.6 C)",
+    "density":0.928
+  },
+  {
+    "name":"Oil, corn (at 15.6 C)",
+    "density":0.924
+  },
+  {
+    "name":"Oil, cotton seed (at 15.6 C)",
+    "density":0.93
+  },
+  {
+    "name":"Oil, lard (at 15.6 C)",
+    "density":0.93
+  },
+  {
+    "name":"Oil, linseed (at 15.6 C)",
+    "density":0.94
+  },
+  {
+    "name":"Oil, olive (at 15.6 C)",
+    "density":0.92
+  },
+  {
+    "name":"Oil, other than palmoil",
+    "density":0.92
+  },
+  {
+    "name":"Oil, palm (at 15.6 C)",
+    "density":0.924
+  },
+  {
+    "name":"Oil, palmoil",
+    "density":0.89
+  },
+  {
+    "name":"Oil, peanut (at 15.6 C)",
+    "density":0.92
+  },
+  {
+    "name":"Oil, rapeseed (at 20 C)",
+    "density":0.92
+  },
+  {
+    "name":"Oil, seasame seed (at 15.6 C)",
+    "density":0.923
+  },
+  {
+    "name":"Oil, sunflower",
+    "density":0.96
+  },
+  {
+    "name":"Oil, vegetable, coconut",
+    "density":0.924
+  },
+  {
+    "name":"Oil, vegetable, corn",
+    "density":0.922
+  },
+  {
+    "name":"Oil, vegetable, olive",
+    "density":0.918
+  },
+  {
+    "name":"Oil, vegetable, palm",
+    "density":0.915
+  },
+  {
+    "name":"Oil, vegetable, peanut",
+    "density":0.914
+  },
+  {
+    "name":"Oil, vegetable, soya",
+    "density":0.927
+  },
+  {
+    "name":"Oil, whale (at 15.6 C)",
+    "density":0.925
+  },
+  {
+    "name":"Animal fat",
+    "density":0.7
+  },
+  {
+    "name":"Lard",
+    "density":0.919
+  },
+  {
+    "name":"Lard (at 15.6 C)",
+    "density":0.96
+  },
+  {
+    "name":"Mayonnaise, light",
+    "density":1.0
+  },
+  {
+    "name":"Mayonnaise, traditional",
+    "density":0.91
+  },
+  {
+    "name":"Solid vegetable fat kimbo",
+    "density":0.6
+  },
+  {
+    "name":"Solid vegetable fat rina ",
+    "density":0.67
+  },
+  {
+    "name":"Barley",
+    "density":0.62
+  },
+  {
+    "name":"Barley malt, flour",
+    "density":0.72
+  },
+  {
+    "name":"Barley, fine ground",
+    "density":0.74
+  },
+  {
+    "name":"Barley, meal",
+    "density":0.45
+  },
+  {
+    "name":"Barley, flour",
+    "density":0.61
+  },
+  {
+    "name":"Barley, flour, malted ",
+    "density":0.64
+  },
+  {
+    "name":"Barley, ground",
+    "density":0.42
+  },
+  {
+    "name":"Barley, malted",
+    "density":0.49
+  },
+  {
+    "name":"Barley, rolled",
+    "density":0.38
+  },
+  {
+    "name":"Barley, scoured",
+    "density":0.66
+  },
+  {
+    "name":"Barley, whole",
+    "density":0.69
+  },
+  {
+    "name":"Biscuits",
+    "density":0.53
+  },
+  {
+    "name":"Bran",
+    "density":0.56
+  },
+  {
+    "name":"Bread",
+    "density":0.29
+  },
+  {
+    "name":"Bread, cornbread ",
+    "density":0.433
+  },
+  {
+    "name":"Bread, roll, soft",
+    "density":0.18
+  },
+  {
+    "name":"Bread, white",
+    "density":0.42
+  },
+  {
+    "name":"Bread, white, sliced, prepacked",
+    "density":0.29
+  },
+  {
+    "name":"Breadcrumbs",
+    "density":0.45
+  },
+  {
+    "name":"Breakfast cereal, cornflakes (dry cereal) ",
+    "density":0.117
+  },
+  {
+    "name":"Breakfast cereal, muesli w\/ fruits&nuts",
+    "density":0.37
+  },
+  {
+    "name":"Breakfast cereal, raisin bran",
+    "density":0.26
+  },
+  {
+    "name":"Breakfast cereal, type Cheerios",
+    "density":0.13
+  },
+  {
+    "name":"Breakfast cereal, type Corn flakes",
+    "density":0.1
+  },
+  {
+    "name":"Breakfast cereal, type Crispix",
+    "density":0.13
+  },
+  {
+    "name":"Breakfast cereal, type frosted flakes",
+    "density":0.18
+  },
+  {
+    "name":"Breakfast cereal, type Just Right",
+    "density":0.24
+  },
+  {
+    "name":"Breakfast cereal, type rice krispies",
+    "density":0.12
+  },
+  {
+    "name":"Buckwheat, bran",
+    "density":0.25
+  },
+  {
+    "name":"Buckwheat, flour",
+    "density":0.66
+  },
+  {
+    "name":"Buckwheat, whole",
+    "density":0.66
+  },
+  {
+    "name":"Bulrush mille, fermented flour",
+    "density":0.56
+  },
+  {
+    "name":"Cake ",
+    "density":0.415
+  },
+  {
+    "name":"Cake mix",
+    "density":0.7
+  },
+  {
+    "name":"Corn\/maize flour, white",
+    "density":0.5500000119
+  },
+  {
+    "name":"Corn\/maize starch, loosely packed",
+    "density":0.54
+  },
+  {
+    "name":"Corn\/maize sugar",
+    "density":0.33
+  },
+  {
+    "name":"Corn\/maize, boiled",
+    "density":0.8999999762
+  },
+  {
+    "name":"Corn\/maize, boiled with fat",
+    "density":0.8999999762
+  },
+  {
+    "name":"Corn\/maize, bran",
+    "density":0.21
+  },
+  {
+    "name":"Corn\/maize, chops (coarse)",
+    "density":0.7
+  },
+  {
+    "name":"Corn\/maize, chops (fine)",
+    "density":0.62
+  },
+  {
+    "name":"Corn\/maize, chops (medium)",
+    "density":0.67
+  },
+  {
+    "name":"Corn\/maize, cobs",
+    "density":0.27
+  },
+  {
+    "name":"Corn\/maize, cracked (coarse)",
+    "density":0.64
+  },
+  {
+    "name":"Corn\/maize, ear",
+    "density":0.9
+  },
+  {
+    "name":"Corn\/maize, ear",
+    "density":0.9
+  },
+  {
+    "name":"Corn\/maize, fermented flour ",
+    "density":0.55
+  },
+  {
+    "name":"Corn\/maize, flour",
+    "density":0.82
+  },
+  {
+    "name":"Corn\/maize, meal",
+    "density":0.64
+  },
+  {
+    "name":"Corn\/maize, flour ",
+    "density":0.62
+  },
+  {
+    "name":"Corn\/maize, germ flour",
+    "density":0.56
+  },
+  {
+    "name":"Corn\/maize, gluten flour",
+    "density":0.69
+  },
+  {
+    "name":"Corn\/maize, grits",
+    "density":0.69
+  },
+  {
+    "name":"Corn\/maize, ground",
+    "density":0.58
+  },
+  {
+    "name":"Corn\/maize, kibbled",
+    "density":0.35
+  },
+  {
+    "name":"Corn\/maize, mash",
+    "density":0.72
+  },
+  {
+    "name":"Corn\/maize, shelled",
+    "density":0.72
+  },
+  {
+    "name":"Corn\/maize, starch",
+    "density":0.67
+  },
+  {
+    "name":"Corn\/maize, starch, tightly packed",
+    "density":0.63
+  },
+  {
+    "name":"Corn\/maize, white, boiled",
+    "density":0.8500000238
+  },
+  {
+    "name":"Corn\/maize, white, dry",
+    "density":0.8100000024
+  },
+  {
+    "name":"Corn\/maize, whole kernel, dried, cracked (Njenga)",
+    "density":0.8100000024
+  },
+  {
+    "name":"Corn\/maize, whole kernel, dried, cracked, boiled (Njenga)",
+    "density":1.0700000525
+  },
+  {
+    "name":"Corn\/maize, whole shelled",
+    "density":0.72
+  },
+  {
+    "name":"Donut mix",
+    "density":0.64
+  },
+  {
+    "name":"Dough mix",
+    "density":0.59
+  },
+  {
+    "name":"Finger millet, fermented flour",
+    "density":0.61
+  },
+  {
+    "name":"Millet",
+    "density":0.64
+  },
+  {
+    "name":"Millet",
+    "density":0.64
+  },
+  {
+    "name":"Millet flour, bulrush",
+    "density":0.5600000024
+  },
+  {
+    "name":"Millet flour, finger",
+    "density":0.6100000143
+  },
+  {
+    "name":"Millet, bulrush",
+    "density":0.8999999762
+  },
+  {
+    "name":"Millet, finger",
+    "density":0.8100000024
+  },
+  {
+    "name":"Oat Flour",
+    "density":0.53
+  },
+  {
+    "name":"Oat middlings",
+    "density":0.61
+  },
+  {
+    "name":"Oats",
+    "density":0.41
+  },
+  {
+    "name":"Oats",
+    "density":0.43
+  },
+  {
+    "name":"Oats groats, whole",
+    "density":0.74
+  },
+  {
+    "name":"Oats, ground",
+    "density":0.46
+  },
+  {
+    "name":"Oats, hulls",
+    "density":0.13
+  },
+  {
+    "name":"Oats, rolled",
+    "density":0.38
+  },
+  {
+    "name":"Pasta, short macaroni style, boiled",
+    "density":0.55
+  },
+  {
+    "name":"Pasta, short macaroni style, raw",
+    "density":0.39
+  },
+  {
+    "name":"Pasta\/ noodles, boiled",
+    "density":0.5899999738
+  },
+  {
+    "name":"Porridge flour bonavist, boiled",
+    "density":0.7300000191
+  },
+  {
+    "name":"Porridge flour bonavist, raw",
+    "density":0.8399999738
+  },
+  {
+    "name":"Porridge flour ken-uji + lemon extract",
+    "density":0.5400000215
+  },
+  {
+    "name":"Porridge flour ken-uji:F.mill, bul, sorg, wheat",
+    "density":0.6000000238
+  },
+  {
+    "name":"Porridge, maize, flour + water",
+    "density":1.0499999523
+  },
+  {
+    "name":"Rice",
+    "density":0.72
+  },
+  {
+    "name":"Rice, boiled",
+    "density":0.73
+  },
+  {
+    "name":"Rice, boiled with fat",
+    "density":0.6999999881
+  },
+  {
+    "name":"Rice, bran",
+    "density":0.42
+  },
+  {
+    "name":"Rice, hulled",
+    "density":0.75
+  },
+  {
+    "name":"Rice, puffed",
+    "density":0.1
+  },
+  {
+    "name":"Rice, raw",
+    "density":0.85
+  },
+  {
+    "name":"Rice, rough",
+    "density":0.58
+  },
+  {
+    "name":"Rice, white, boiled",
+    "density":0.73
+  },
+  {
+    "name":"Rice, white, raw",
+    "density":0.82
+  },
+  {
+    "name":"Rye",
+    "density":0.72
+  },
+  {
+    "name":"Rye, bran",
+    "density":0.32
+  },
+  {
+    "name":"Rye, flour ",
+    "density":0.67
+  },
+  {
+    "name":"Rye, malted",
+    "density":0.51
+  },
+  {
+    "name":"Rye, middlings",
+    "density":0.67
+  },
+  {
+    "name":"Rye, shorts",
+    "density":0.54
+  },
+  {
+    "name":"Rye, whole",
+    "density":0.72
+  },
+  {
+    "name":"Semolina, raw",
+    "density":0.78
+  },
+  {
+    "name":"Sorghum, fermented flour",
+    "density":0.54
+  },
+  {
+    "name":"Sorghum, flour",
+    "density":0.5400000215
+  },
+  {
+    "name":"Sorghum, seed",
+    "density":0.56
+  },
+  {
+    "name":"Soy, flour ",
+    "density":0.7
+  },
+  {
+    "name":"Soya, flour ",
+    "density":0.64
+  },
+  {
+    "name":"Wheat",
+    "density":0.77
+  },
+  {
+    "name":"Wheat, bran",
+    "density":0.26
+  },
+  {
+    "name":"Wheat, cracked",
+    "density":0.56
+  },
+  {
+    "name":"Wheat, cut",
+    "density":0.74
+  },
+  {
+    "name":"Wheat, flour",
+    "density":0.48
+  },
+  {
+    "name":"Wheat, flour",
+    "density":0.5799999833
+  },
+  {
+    "name":"Wheat, flour ",
+    "density":0.67
+  },
+  {
+    "name":"Wheat, flour ",
+    "density":0.521
+  },
+  {
+    "name":"Wheat, flour, malted",
+    "density":0.66
+  },
+  {
+    "name":"Wheat, flour, white",
+    "density":0.67
+  },
+  {
+    "name":"Wheat, flour, wholemeal",
+    "density":0.55
+  },
+  {
+    "name":"Wheat, gluten",
+    "density":0.69
+  },
+  {
+    "name":"Wheat, hulls",
+    "density":0.7
+  },
+  {
+    "name":"Wheat, middlings",
+    "density":0.24
+  },
+  {
+    "name":"Wheat, shaved",
+    "density":0.54
+  },
+  {
+    "name":"Wheat, whole",
+    "density":0.83
+  },
+  {
+    "name":"Whey",
+    "density":0.56
+  },
+  {
+    "name":"Arrowroot\/cocoyam, boiled",
+    "density":0.535
+  },
+  {
+    "name":"Arrowroot\/cocoyam, raw",
+    "density":0.5199999809
+  },
+  {
+    "name":"Cassava,flour",
+    "density":0.5500000119
+  },
+  {
+    "name":"Cassava, boiled",
+    "density":0.63
+  },
+  {
+    "name":"Cassava, raw",
+    "density":0.6299999952
+  },
+  {
+    "name":"Potato, english, boiled",
+    "density":0.59
+  },
+  {
+    "name":"Potato, english, raw",
+    "density":0.5899999738
+  },
+  {
+    "name":"Potatoes, flakes",
+    "density":0.21
+  },
+  {
+    "name":"Potatoes, powdered",
+    "density":0.77
+  },
+  {
+    "name":"Sweet potato, boiled",
+    "density":0.65
+  },
+  {
+    "name":"Sweet potato, raw",
+    "density":0.44
+  },
+  {
+    "name":"Yam, boiled",
+    "density":0.79
+  },
+  {
+    "name":"Yam, raw",
+    "density":0.66
+  },
+  {
+    "name":"Almonds",
+    "density":0.46
+  },
+  {
+    "name":"Cashews",
+    "density":0.5
+  },
+  {
+    "name":"Coconut Chips",
+    "density":0.61
+  },
+  {
+    "name":"Flaxseed",
+    "density":0.7
+  },
+  {
+    "name":"Nuts",
+    "density":0.63
+  },
+  {
+    "name":"Peanuts",
+    "density":0.53
+  },
+  {
+    "name":"Peanuts, shelled",
+    "density":0.69
+  },
+  {
+    "name":"Peanuts, unshelled",
+    "density":0.38
+  },
+  {
+    "name":"Pistachio, raw, with shell",
+    "density":0.6
+  },
+  {
+    "name":"Pistachio, raw, without shell",
+    "density":0.646
+  },
+  {
+    "name":"Rapeseed",
+    "density":0.77
+  },
+  {
+    "name":"Sunflower, seed",
+    "density":0.62
+  },
+  {
+    "name":"Apple slices, dried",
+    "density":0.24
+  },
+  {
+    "name":"Loquat",
+    "density":0.6
+  },
+  {
+    "name":"Paw Paw, unripe",
+    "density":0.56
+  },
+  {
+    "name":"Alfalfa, leaf, meal",
+    "density":0.23
+  },
+  {
+    "name":"Alfalfa,meal, dehydrated 13%",
+    "density":0.29
+  },
+  {
+    "name":"Alfalfa, meal, dehydrated 17%",
+    "density":0.35
+  },
+  {
+    "name":"Alfalfa, meal, fine ground",
+    "density":0.35
+  },
+  {
+    "name":"Alfalfa, meal, suncured 13%",
+    "density":0.22
+  },
+  {
+    "name":"Alfalfa, seed",
+    "density":0.77
+  },
+  {
+    "name":"Alfalfa, stem meal",
+    "density":0.19
+  },
+  {
+    "name":"Carrot, raw, chopped",
+    "density":0.54
+  },
+  {
+    "name":"Carrot, raw, grated",
+    "density":0.71
+  },
+  {
+    "name":"Cauliflower, boiled",
+    "density":0.45
+  },
+  {
+    "name":"Chili, green",
+    "density":0.5
+  },
+  {
+    "name":"Chili, red",
+    "density":0.5
+  },
+  {
+    "name":"French green beans",
+    "density":0.5299999714
+  },
+  {
+    "name":"Fresh green peas (minji)",
+    "density":0.7300000191
+  },
+  {
+    "name":"Leaves, managu, raw (black night shade)",
+    "density":0.2
+  },
+  {
+    "name":"Leaves, onion, spring onion, raw",
+    "density":0.44
+  },
+  {
+    "name":"Corn\/maize, green, sweet corn, boiled",
+    "density":0.73
+  },
+  {
+    "name":"Corn\/maize, green, sweet corn, raw",
+    "density":0.61
+  },
+  {
+    "name":"Olives, green, with stone",
+    "density":0.65
+  },
+  {
+    "name":"Onions, chopped",
+    "density":0.22
+  },
+  {
+    "name":"Onions, minced",
+    "density":0.13
+  },
+  {
+    "name":"Onions, powdered",
+    "density":0.4
+  },
+  {
+    "name":"Onions, fried, cubed",
+    "density":0.75
+  },
+  {
+    "name":"Onions, raw, cubed",
+    "density":0.55
+  },
+  {
+    "name":"Salad, green, leaves, raw",
+    "density":0.06
+  },
+  {
+    "name":"Spinach, frozen, cooked",
+    "density":1.046
+  },
+  {
+    "name":"Spinach, leaves, raw",
+    "density":0.08
+  },
+  {
+    "name":"Sweet pepper, raw, cubes",
+    "density":0.51
+  },
+  {
+    "name":"Sweet pepper, raw, half rings",
+    "density":0.39
+  },
+  {
+    "name":"Beans, white",
+    "density":0.77
+  },
+  {
+    "name":"Cowpeas",
+    "density":0.72
+  },
+  {
+    "name":"Cowpeas, dried, boiled",
+    "density":0.75
+  },
+  {
+    "name":"Cowpeas, dried, raw",
+    "density":0.9599999785
+  },
+  {
+    "name":"Greengram, boiled",
+    "density":0.76
+  },
+  {
+    "name":"Greengram, raw",
+    "density":0.79
+  },
+  {
+    "name":"Kidney beans, dry, boiled",
+    "density":0.7900000215
+  },
+  {
+    "name":"Kidney beans, dry, raw",
+    "density":0.75
+  },
+  {
+    "name":"Kidney beans, green, boiled",
+    "density":0.7
+  },
+  {
+    "name":"Kidney beans, green, raw",
+    "density":0.68
+  },
+  {
+    "name":"Lentils, green, small, boiled",
+    "density":0.85
+  },
+  {
+    "name":"Lentils, green, small, raw",
+    "density":0.89
+  },
+  {
+    "name":"Pigeon peas, boiled",
+    "density":0.75
+  },
+  {
+    "name":"Pigeon peas, raw",
+    "density":0.84
+  },
+  {
+    "name":"Soybean",
+    "density":0.74
+  },
+  {
+    "name":"Soybean, flakes",
+    "density":0.58
+  },
+  {
+    "name":"Soybean, hulls",
+    "density":0.4
+  },
+  {
+    "name":"Soybean, meal",
+    "density":0.64
+  },
+  {
+    "name":"Soybean, boiled",
+    "density":0.7900000215
+  },
+  {
+    "name":"Soybean, boiled with fat",
+    "density":0.6999999881
+  },
+  {
+    "name":"Cinnamon, powder",
+    "density":0.56
+  },
+  {
+    "name":"Clover, seed",
+    "density":0.77
+  },
+  {
+    "name":"Dry flavoring mix Roiko and other flavorings",
+    "density":0.7
+  },
+  {
+    "name":"Garlic, flakes",
+    "density":0.35
+  },
+  {
+    "name":"Garlic, powder",
+    "density":0.32
+  },
+  {
+    "name":"Sage, leaves",
+    "density":0.29
+  },
+  {
+    "name":"Spice, barbecue",
+    "density":0.48
+  },
+  {
+    "name":"Spice, blend",
+    "density":0.58
+  },
+  {
+    "name":"Prawns, whole, boiled, with shell",
+    "density":0.58
+  },
+  {
+    "name":"Prawns, whole, boiled, without shell",
+    "density":0.77
+  },
+  {
+    "name":"Egg, yoke, powder",
+    "density":0.37
+  },
+  {
+    "name":"Egg, chicken, boiled\/poached",
+    "density":0.6
+  },
+  {
+    "name":"Eggs, powdered",
+    "density":0.35
+  },
+  {
+    "name":"Blood, flour",
+    "density":0.48
+  },
+  {
+    "name":"Blood, meal",
+    "density":0.62
+  },
+  {
+    "name":"Bone and meat meal, loose",
+    "density":0.72
+  },
+  {
+    "name":"Bone meal, loose",
+    "density":0.96
+  },
+  {
+    "name":"Cow intestine, boiled",
+    "density":0.58
+  },
+  {
+    "name":"Cow, lean, no bone, raw",
+    "density":0.96
+  },
+  {
+    "name":"Cow, intestine, raw",
+    "density":0.93
+  },
+  {
+    "name":"Goat, intestine, boiled",
+    "density":0.56
+  },
+  {
+    "name":"Goat, intestine, raw",
+    "density":0.83
+  },
+  {
+    "name":"Pork, fatty, with bone, boiled",
+    "density":0.63
+  },
+  {
+    "name":"Pork, fatty, with bone, raw",
+    "density":0.97
+  },
+  {
+    "name":"Pork, medium, with bone, boiled",
+    "density":0.7
+  },
+  {
+    "name":"Pork, medium, with bone, raw",
+    "density":0.93
+  },
+  {
+    "name":"Potato chips",
+    "density":0.09
+  },
+  {
+    "name":"Potato chips, pringles",
+    "density":0.12
+  },
+  {
+    "name":"Snacks, puffed, lowfat",
+    "density":0.11
+  },
+  {
+    "name":"Glucolin, glucose",
+    "density":0.4
+  },
+  {
+    "name":"Glucose (at 15.6 C)",
+    "density":1.44
+  },
+  {
+    "name":"Jam ",
+    "density":1.333
+  },
+  {
+    "name":"Jam, sweetened",
+    "density":1.43
+  },
+  {
+    "name":"Jelly ",
+    "density":1.245
+  },
+  {
+    "name":"Nutella",
+    "density":1.26
+  },
+  {
+    "name":"Sucrose",
+    "density":0.85
+  },
+  {
+    "name":"Sucrose Octoacetate",
+    "density":0.53
+  },
+  {
+    "name":"Sugar",
+    "density":0.95
+  },
+  {
+    "name":"Sugar, dextrose",
+    "density":0.62
+  },
+  {
+    "name":"Sugar, dextrose",
+    "density":0.58
+  },
+  {
+    "name":"Sugar, granulated",
+    "density":0.7
+  },
+  {
+    "name":"Sugar, powdered",
+    "density":0.56
+  },
+  {
+    "name":"Sugar, white",
+    "density":0.9
+  },
+  {
+    "name":"Sugar, white",
+    "density":0.88
+  },
+  {
+    "name":"Syrup, blackcurrant, undiluted",
+    "density":1.28
+  },
+  {
+    "name":"Syrup, corn",
+    "density":1.38
+  },
+  {
+    "name":"Syrup, corn, light",
+    "density":1.4042664239
+  },
+  {
+    "name":"Syrup, fruit, blackberry",
+    "density":1.34
+  },
+  {
+    "name":"Syrup, grenadine",
+    "density":1.18
+  },
+  {
+    "name":"Syrup, maple",
+    "density":1.3186907167
+  },
+  {
+    "name":"Syrup, pancake ",
+    "density":1.312
+  },
+  {
+    "name":"Baking powder",
+    "density":0.9
+  },
+  {
+    "name":"Gelatin",
+    "density":0.72
+  },
+  {
+    "name":"Monosodium glutamate",
+    "density":1.62
+  },
+  {
+    "name":"Mustard powdered",
+    "density":0.26
+  },
+  {
+    "name":"Protein supplement",
+    "density":0.54
+  },
+  {
+    "name":"Salad dressing",
+    "density":1.1
+  },
+  {
+    "name":"Salt, sodium chloride",
+    "density":2.165
+  },
+  {
+    "name":"Salt, fine table",
+    "density":1.38
+  },
+  {
+    "name":"Salt, granulated",
+    "density":1.28
+  },
+  {
+    "name":"Salt, table",
+    "density":1.217
+  },
+  {
+    "name":"Sauce, soy",
+    "density":1.12
+  },
+  {
+    "name":"Sodium bicarbonate",
+    "density":2.2
+  },
+  {
+    "name":"Vitamin additive",
+    "density":0.66
+  },
+  {
+    "name":"Vitamin compound",
+    "density":0.67
+  },
+  {
+    "name":"Vitamin enrichment",
+    "density":0.64
+  },
+  {
+    "name":"Vitamin mix",
+    "density":0.7
+  },
+  {
+    "name":"Vitamin powder",
+    "density":0.56
+  },
+  {
+    "name":"Yeast",
+    "density":0.95
+  },
+  {
+    "name":"Bean soup",
+    "density":1.054
+  },
+  {
+    "name":"Cheddar cheese soup",
+    "density":1.046
+  },
+  {
+    "name":"Chicken noodle soup",
+    "density":1.0
+  },
+  {
+    "name":"Egg drop soup",
+    "density":1.017
+  },
+  {
+    "name":"Mushroom soup",
+    "density":1.017
+  },
+  {
+    "name":"Soup, meat",
+    "density":1.0399999619
+  },
+  {
+    "name":"Soup, mixed",
+    "density":1.0499999523
+  },
+  {
+    "name":"Soup, thick (squash, potato)",
+    "density":1.09
+  },
+  {
+    "name":"Soup, vegetable",
+    "density":0.9900000095
+  },
+  {
+    "name":"Tomato soup",
+    "density":1.017
+  },
+  {
+    "name":"Beef and noodles (no sauce)",
+    "density":0.65
+  },
+  {
+    "name":"Beef and noodles in gravy (mixture)",
+    "density":1.038
+  },
+  {
+    "name":"Beef stew, canned",
+    "density":1.05
+  },
+  {
+    "name":"Beef, noodles and vegetables (no sauce)",
+    "density":0.675
+  },
+  {
+    "name":"Broccoli casserole",
+    "density":0.95
+  },
+  {
+    "name":"Cheese tortellini",
+    "density":1.029
+  },
+  {
+    "name":"Chicken and dumplings (mixture)",
+    "density":1.038
+  },
+  {
+    "name":"Eggplant parmesan",
+    "density":0.825
+  },
+  {
+    "name":"Githeri (muthugo + beans) + meat",
+    "density":0.9499999881
+  },
+  {
+    "name":"Githeri (muthugo + beans) + meat + vegetable + potato\/banana",
+    "density":0.9900000095
+  },
+  {
+    "name":"Githeri (muthugo + beans) + onion, boiled with fat",
+    "density":0.9800000191
+  },
+  {
+    "name":"Githeri (muthugo + beans) + potato\/banana",
+    "density":0.8799999952
+  },
+  {
+    "name":"Githeri (muthugo + beans) + vegetable",
+    "density":1.0399999619
+  },
+  {
+    "name":"Githeri (muthugo + beans) + vegetable + meat",
+    "density":0.9399999976
+  },
+  {
+    "name":"Githeri + meat",
+    "density":0.75
+  },
+  {
+    "name":"Githeri + meat + vegetable + potato\/banana",
+    "density":1.0499999523
+  },
+  {
+    "name":"Githeri + onion, boiled with fat",
+    "density":0.8299999833
+  },
+  {
+    "name":"Githeri + peas",
+    "density":1.0399999619
+  },
+  {
+    "name":"Githeri + potato\/banana",
+    "density":1.1000000238
+  },
+  {
+    "name":"Githeri + roots + vegetable",
+    "density":1.1299999952
+  },
+  {
+    "name":"Githeri + vegetable",
+    "density":1.2999999523
+  },
+  {
+    "name":"Githeri + vegetable + meat",
+    "density":0.8399999738
+  },
+  {
+    "name":"Githeri + vegetable + potato\/banana",
+    "density":0.9499999881
+  },
+  {
+    "name":"Githeri plain (muthugo + beans + water)",
+    "density":0.9800000191
+  },
+  {
+    "name":"Githeri, beans + vegetable + potatoes",
+    "density":0.9300000072
+  },
+  {
+    "name":"Githeri, maize + peas",
+    "density":0.9700000286
+  },
+  {
+    "name":"Githeri, plain (maize + beans + water)",
+    "density":0.71
+  },
+  {
+    "name":"Gitwero, banana + beans",
+    "density":1.2000000477
+  },
+  {
+    "name":"Gitwero, banana + beans + vegetable",
+    "density":1.2000000477
+  },
+  {
+    "name":"Gitwero, banana + potato + beans",
+    "density":1.0399999619
+  },
+  {
+    "name":"Gitwero, banana + vegetable",
+    "density":1.2000000477
+  },
+  {
+    "name":"Gitwero, banana, boiled with fat",
+    "density":1.1900000572
+  },
+  {
+    "name":"Gitwero, banana\/potato",
+    "density":1.2999999523
+  },
+  {
+    "name":"Gitwero, banana\/potato + meat",
+    "density":1.0800000429
+  },
+  {
+    "name":"Gitwero, banana\/potato + vegetable",
+    "density":1.2200000286
+  },
+  {
+    "name":"Gitwero, root (yam, arrowroot, etc.)",
+    "density":1.1399999857
+  },
+  {
+    "name":"Gitwero, roots + banana",
+    "density":1.0299999714
+  },
+  {
+    "name":"Gitwero, roots + banana",
+    "density":1.0299999714
+  },
+  {
+    "name":"Green bean casserole",
+    "density":0.95
+  },
+  {
+    "name":"Lasagna",
+    "density":1.042
+  },
+  {
+    "name":"Macaroni and cheese, canned",
+    "density":0.996
+  },
+  {
+    "name":"Mataha (Maize stew) (Maize stew), maize + peas",
+    "density":0.8600000143
+  },
+  {
+    "name":"Mataha (maize stew), beans + banana",
+    "density":1.2200000286
+  },
+  {
+    "name":"Mataha (maize stew), beans + banana + potato",
+    "density":1.25
+  },
+  {
+    "name":"Mataha (maize stew), beans + banana + potato + vegetable",
+    "density":1.1499999762
+  },
+  {
+    "name":"Mataha (maize stew), beans + potato\/banana + vegetable",
+    "density":1.1399999857
+  },
+  {
+    "name":"Mataha (maize stew), beans + vegetable",
+    "density":1.0199999809
+  },
+  {
+    "name":"Mataha (maize stew), beans + vegetable + banana",
+    "density":1.0
+  },
+  {
+    "name":"Mataha (maize stew), maize + banana",
+    "density":1.0900000334
+  },
+  {
+    "name":"Mataha (maize stew), maize + banana\/potato + vegetable",
+    "density":1.1000000238
+  },
+  {
+    "name":"Mataha (maize stew), maize + beans + potato",
+    "density":0.75
+  },
+  {
+    "name":"Mataha (maize stew), maize + beans + potato + vegetable",
+    "density":0.9499999881
+  },
+  {
+    "name":"Mataha (maize stew), maize + beans + potato, boiled with fat",
+    "density":0.75
+  },
+  {
+    "name":"Mataha (maize stew), maize + beans + vegetable + banana",
+    "density":0.6999999881
+  },
+  {
+    "name":"Mataha (maize stew), maize + vegetable",
+    "density":0.8999999762
+  },
+  {
+    "name":"Mataha (maize stew), paw paw",
+    "density":1.3300000429
+  },
+  {
+    "name":"Mexican casserole w\/beef, beans, cheese, chips",
+    "density":0.6
+  },
+  {
+    "name":"Mini ravioli, canned",
+    "density":1.046
+  },
+  {
+    "name":"Moussaka",
+    "density":0.846
+  },
+  {
+    "name":"Muthugo (maize without germ and cover) only",
+    "density":0.7599999905
+  },
+  {
+    "name":"Noodles\/pasta with fat",
+    "density":0.8000000119
+  },
+  {
+    "name":"Rice + beans",
+    "density":0.75
+  },
+  {
+    "name":"Rice + beans + potato\/banana",
+    "density":0.8500000238
+  },
+  {
+    "name":"Rice + meat",
+    "density":0.7300000191
+  },
+  {
+    "name":"Rice + meat + vegetable",
+    "density":0.8299999833
+  },
+  {
+    "name":"Rice + potato\/banana",
+    "density":0.8000000119
+  },
+  {
+    "name":"Rice + roots (yam, arrowroot etc.)",
+    "density":0.8999999762
+  },
+  {
+    "name":"Rice + vegetable",
+    "density":0.6499999762
+  },
+  {
+    "name":"Rice + vegetable + potato\/banana",
+    "density":0.8000000119
+  },
+  {
+    "name":"Rice, plain (rice + water)",
+    "density":0.6999999881
+  },
+  {
+    "name":"Spaghetti and meat balls, canned",
+    "density":1.038
+  },
+  {
+    "name":"Stew, banana",
+    "density":1.0700000525
+  },
+  {
+    "name":"Stew, banana + potato + vegetable",
+    "density":1.0599999428
+  },
+  {
+    "name":"Stew, beans",
+    "density":1.01
+  },
+  {
+    "name":"Stew, beans\/ peas + meat + vegetables",
+    "density":0.9399999976
+  },
+  {
+    "name":"Stew, beans\/ peas + vegetables",
+    "density":1.0700000525
+  },
+  {
+    "name":"Stew, meat",
+    "density":1.1200000048
+  },
+  {
+    "name":"Stew, pea + potato\/banana",
+    "density":1.1000000238
+  },
+  {
+    "name":"Stew, pea + potato\/banana + vegetable",
+    "density":1.2200000286
+  },
+  {
+    "name":"Stew, potato",
+    "density":1.1000000238
+  },
+  {
+    "name":"Stew, potato + beans + vegetable",
+    "density":1.0800000429
+  },
+  {
+    "name":"Stew, vegetable",
+    "density":0.6800000072
+  },
+  {
+    "name":"Stew, vegetable + meat",
+    "density":0.8600000143
+  },
+  {
+    "name":"Stew, vegetable + potato",
+    "density":1.1000000238
+  },
+  {
+    "name":"Stew, vegetable + potato + meat",
+    "density":1.0800000429
+  },
+  {
+    "name":"Stew: eggs + veg",
+    "density":0.68
+  },
+  {
+    "name":"Tuna noodle casserole",
+    "density":0.933
+  },
+  {
+    "name":"Ugali + beans",
+    "density":0.8000000119
+  },
+  {
+    "name":"Ugali + beans + vegetable",
+    "density":0.8000000119
+  },
+  {
+    "name":"Ugali + vegetable, crumbed",
+    "density":0.75
+  },
+  {
+    "name":"Ugali + vegetables, boiled with fat",
+    "density":1.2000000477
+  },
+  {
+    "name":"Ugali, plain (flour + water), crumbed",
+    "density":0.75
+  },
+  {
+    "name":"Wieners and sauerkraut (mixture)",
+    "density":0.612
+  },
+  {
+    "name":"Zesty Italian \u2018\u2018hamburger helper\u2019\u2019",
+    "density":1.038
+  }
+]
