@@ -4,3 +4,7 @@
         <p>This is the results page.</p>
     </div>
 </template>
+
+<script>
+
+</script>
