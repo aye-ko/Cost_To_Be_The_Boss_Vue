@@ -123,6 +123,11 @@ function addIngredient() {
     alert('Please fill in all fields with valid values before adding')
     return
     }
+    const isInFAO = densities.some(d => d.name === newName.value)
+    if (!isInFAO) {
+        alert('Ingredient must be selected from the FAO list')
+        return
+    }
 
     pantry.addIngredient(newName.value, newQuantity.value, newUnit.value, newCost.value)
     resetForm()
@@ -145,7 +150,12 @@ function saveEdit(){
         alert('Please fill in all fields with valid values before saving')
         return
     }   
-    
+    const isInFAO = densities.some(d => d.name === editDraft.value.name)
+    if (!isInFAO) {
+        alert('Ingredient must be selected from the FAO list')
+        return
+    }
+
     pantry.updateIngredient(editingId.value, editDraft.value.name, editDraft.value.quantity, editDraft.value.unit, editDraft.value.cost)
 
     // Reset editing state
