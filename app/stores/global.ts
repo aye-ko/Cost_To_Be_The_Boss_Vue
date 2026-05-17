@@ -39,25 +39,11 @@ export const useGlobalStore = defineStore('global', () => {
         }
     })
 
-    function updateHourlyWage(newWage: number) {
-        hourlyWage.value = newWage
-        saveToLocalStorage()
-    }
-    function updateMonthlyOverhead(newOverhead: number) {
-        monthlyOverhead.value = newOverhead
-        saveToLocalStorage()
-    }
-    function updateMonthlyHoursWorked(newHours: number) {
-        monthlyHoursWorked.value = newHours
-        saveToLocalStorage()
-    }
 
     return {
         hourlyWage,
         monthlyOverhead,
         monthlyHoursWorked,
-        updateHourlyWage,
-        updateMonthlyOverhead,
-        updateMonthlyHoursWorked,    
+        saveToLocalStorage
     }
 })
