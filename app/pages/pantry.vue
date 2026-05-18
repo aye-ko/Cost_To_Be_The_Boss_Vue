@@ -2,13 +2,29 @@
     <div>
         <h2>Pantry</h2>
         <p>Add Ingredients to Pantry.</p>
-        <input type="text" v-model="newName" placeholder="Ingredient Name" />
-        <input type="number" step="0.1" v-model.number="newQuantity" placeholder="Quantity" />
-        <select v-model="newUnit">
-            <option value="" disabled>Select a Unit of Measurement</option>
-            <option v-for="unit in units" :key="unit" :value="unit">{{ unit }}</option>
-        </select>
-        <input type="number" step="0.01" v-model.number="newCost" placeholder="Cost" />
+        <div>
+            <label for="ingredient-name">Ingredient Name: </label>
+            <input id="ingredient-name" type="text" v-model="newName" list="fao-options" placeholder="Ingredient Name" />
+        </div>
+
+        <div>
+            <label for="ingredient-quantity">Quantity: </label>
+            <input id="ingredient-quantity" type="number" step="0.1" v-model.number="newQuantity" placeholder="Quantity" />
+        </div>
+
+        <div>
+            <label for="ingredient-unit">Unit of Measurement: </label>
+            <select v-model="newUnit">
+                <option value="" disabled>Select a Unit of Measurement</option>
+                <option v-for="unit in units" :key="unit" :value="unit">{{ unit }}</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="ingredient-cost">Cost: </label>
+            <input id="ingredient-cost" type="number" step="0.01" v-model.number="newCost" placeholder="Cost" />
+        </div>
+
         <button @click="addIngredient">Add Ingredient</button>
         
         <table>
@@ -24,7 +40,7 @@
                 <tr v-for="ingredient in pantry.ingredients" :key="ingredient.id">
 
                     <td v-if="editingId === ingredient.id">
-                        <input type="text" v-model="editDraft.name" />
+                        <input type="text" v-model="editDraft.name" list="fao-options"/>
                     </td>
                     <td v-else>{{ ingredient.name }}</td>
 
@@ -57,7 +73,12 @@
                 </tr>
             </tbody>
         </table>
+        <datalist id="fao-options">
+            <option v-for="d in densities" :value="d.name" :key="d.name"></option>
+        </datalist>
     </div>
+    
+
 </template>
 
 
@@ -65,6 +86,7 @@
 import { ref } from 'vue'
 import { usePantryStore } from '~/stores/pantry'
 import type { Ingredient } from '~/stores/pantry'
+import densities from '~/data/densities.json'
 
 const pantry = usePantryStore()
 const newName = ref('')
@@ -101,6 +123,11 @@ function addIngredient() {
     alert('Please fill in all fields with valid values before adding')
     return
     }
+    const isInFAO = densities.some(d => d.name === newName.value)
+    if (!isInFAO) {
+        alert('Ingredient must be selected from the FAO list')
+        return
+    }
 
     pantry.addIngredient(newName.value, newQuantity.value, newUnit.value, newCost.value)
     resetForm()
@@ -123,7 +150,12 @@ function saveEdit(){
         alert('Please fill in all fields with valid values before saving')
         return
     }   
-    
+    const isInFAO = densities.some(d => d.name === editDraft.value.name)
+    if (!isInFAO) {
+        alert('Ingredient must be selected from the FAO list')
+        return
+    }
+
     pantry.updateIngredient(editingId.value, editDraft.value.name, editDraft.value.quantity, editDraft.value.unit, editDraft.value.cost)
 
     // Reset editing state
@@ -137,7 +169,12 @@ function cancelEdit() {
 }
 </script>
 
-<style>
+<style scoped>
+label {
+    display: inline-block;
+    width: 150px;
+    margin-top: 10px;
+}
 
 </style>
 

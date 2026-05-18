@@ -11,7 +11,9 @@ export interface Recipe {
     id: number,
     name: string,
     servingsPerBatch: number,
-    ingredients: RecipeIngredient[]
+    ingredients: RecipeIngredient[],
+    hoursPerBatch: number,
+    profitMargin: number
 }
 
 export const useRecipesStore = defineStore('recipes', () => {
@@ -43,12 +45,14 @@ export const useRecipesStore = defineStore('recipes', () => {
         }                       
     })
 
-    function addRecipe(name: string, ingredients: RecipeIngredient[], servingsPerBatch: number) {
+    function addRecipe(name: string, ingredients: RecipeIngredient[], servingsPerBatch: number, hoursPerBatch: number, profitMargin: number ) {
         recipes.value.push({
             id: Date.now() + Math.random(), // Simple unique ID
             name: name.trim(),
             servingsPerBatch: servingsPerBatch,
-            ingredients: ingredients
+            ingredients: ingredients,
+            profitMargin: profitMargin,
+            hoursPerBatch: hoursPerBatch
             })
         saveToLocalStorage()
     }
@@ -58,14 +62,16 @@ export const useRecipesStore = defineStore('recipes', () => {
         saveToLocalStorage()
     }
 
-    function updateRecipe(id: number, name: string, ingredients: RecipeIngredient[], servingsPerBatch: number) {
+    function updateRecipe(id: number, name: string, ingredients: RecipeIngredient[], servingsPerBatch: number, hoursPerBatch: number, profitMargin: number) {
         const index = recipes.value.findIndex(recipe => recipe.id === id)
         if (index !== -1) {
             recipes.value[index] = {
                 id,
                 name: name.trim(),
                 servingsPerBatch: servingsPerBatch, // Update the servings per batch as well
-                ingredients
+                ingredients,
+                profitMargin,
+                hoursPerBatch
             }
             saveToLocalStorage()
         }       
