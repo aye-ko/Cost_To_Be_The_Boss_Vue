@@ -14,6 +14,7 @@ export interface Recipe {
     ingredients: RecipeIngredient[],
     hoursPerBatch: number,
     profitMargin: number
+    batchesPerMonth: number
 }
 
 export const useRecipesStore = defineStore('recipes', () => {
@@ -45,14 +46,15 @@ export const useRecipesStore = defineStore('recipes', () => {
         }                       
     })
 
-    function addRecipe(name: string, ingredients: RecipeIngredient[], servingsPerBatch: number, hoursPerBatch: number, profitMargin: number ) {
+    function addRecipe(name: string, ingredients: RecipeIngredient[], servingsPerBatch: number, hoursPerBatch: number, profitMargin: number, batchesPerMonth: number) {
         recipes.value.push({
             id: Date.now() + Math.random(), // Simple unique ID
             name: name.trim(),
             servingsPerBatch: servingsPerBatch,
             ingredients: ingredients,
             profitMargin: profitMargin,
-            hoursPerBatch: hoursPerBatch
+            hoursPerBatch: hoursPerBatch,
+            batchesPerMonth: batchesPerMonth         
             })
         saveToLocalStorage()
     }
@@ -62,7 +64,7 @@ export const useRecipesStore = defineStore('recipes', () => {
         saveToLocalStorage()
     }
 
-    function updateRecipe(id: number, name: string, ingredients: RecipeIngredient[], servingsPerBatch: number, hoursPerBatch: number, profitMargin: number) {
+    function updateRecipe(id: number, name: string, ingredients: RecipeIngredient[], servingsPerBatch: number, hoursPerBatch: number, profitMargin: number, batchesPerMonth: number) {
         const index = recipes.value.findIndex(recipe => recipe.id === id)
         if (index !== -1) {
             recipes.value[index] = {
@@ -71,7 +73,8 @@ export const useRecipesStore = defineStore('recipes', () => {
                 servingsPerBatch: servingsPerBatch, // Update the servings per batch as well
                 ingredients,
                 profitMargin,
-                hoursPerBatch
+                hoursPerBatch,
+                batchesPerMonth
             }
             saveToLocalStorage()
         }       

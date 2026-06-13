@@ -9,6 +9,7 @@ describe('priceRecipe', () => {
             hoursPerBatch: 1,
             servingsPerBatch: 10,
             profitMargin: 0.10,
+            batchesPerMonth: 100,
             ingredients: [{ ingredientId: 1, quantity: 1, unit: 'cup' }]
             };
 
@@ -39,6 +40,7 @@ if (result.ok) {
             hoursPerBatch: 1,
             servingsPerBatch: 10,
             profitMargin: 0.10,
+            batchesPerMonth: 100,
             ingredients: [{ ingredientId: 1, quantity: 1, unit: 'cup' }]
             };
 
@@ -60,6 +62,7 @@ if (result.ok) {
             name: 'test recipe',
             hoursPerBatch: 1,
             servingsPerBatch: 10,
+            batchesPerMonth: 100,
             profitMargin: 0.10,
             ingredients: [{ ingredientId: 1, quantity: 1, unit: 'cup' }]
             }; 
@@ -81,6 +84,7 @@ if (result.ok) {
             hoursPerBatch: 1,
             servingsPerBatch: 10,   
             profitMargin: 0.10,
+            batchesPerMonth: 100,
             ingredients: [{ ingredientId: 1, quantity: 1, unit: 'cup' }]
             };  
 
@@ -102,6 +106,7 @@ if (result.ok) {
             hoursPerBatch: 1,
             servingsPerBatch: 10,   
             profitMargin: 0.10,
+            batchesPerMonth: 100,
             ingredients: [{ ingredientId: 1, quantity: 1, unit: 'cup' }]
             };  
         const pantry = [
@@ -120,6 +125,7 @@ if (result.ok) {
             name: 'test recipe',
             hoursPerBatch: 1,
             servingsPerBatch: 10,   
+            batchesPerMonth: 100,
             profitMargin: 0.10,
             ingredients: [{ ingredientId: 1, quantity: 1, unit: 'cup' }]
             };  
@@ -139,6 +145,7 @@ if (result.ok) {
             name: 'test recipe',
             hoursPerBatch: 1,
             servingsPerBatch: 10,
+            batchesPerMonth: 100,
             profitMargin: 0.10,
             ingredients: [{ ingredientId: 1, quantity: 1, unit: 'each' }]
             };

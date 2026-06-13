@@ -18,6 +18,11 @@
             <label for="profit-margin">Profit Margin: </label>
             <input id= "profit-margin" type="number" v-model.number="newProfitMargin" min="0" max="1" step="0.01" placeholder="Profit Margin (e.g. 0.30 for 30%)" />    
         </div>
+
+        <div>
+            <label for="batches-per-month">Batches per Month: </label>
+            <input id= "batches-per-month" type="number" v-model.number="newBatchesPerMonth" min="1" placeholder="Batches per Month" />
+        </div>
         
         <h3>Add an Ingredient</h3>
         <div>
@@ -59,10 +64,27 @@
             <li v-for="recipe in recipeStore.recipes" :key="recipe.id">
                 <!-- Edit Mode -->
                 <template v-if="editingId === recipe.id && editDraft">
-                    <input type="text" v-model="editDraft.name" />
-                    <input type="number" v-model.number="editDraft.servingsPerBatch" min="1" />
-                    <input type="number" v-model.number="editDraft.hoursPerBatch" min="0" />
-                    <input type="number" v-model.number="editDraft.profitMargin" min="0" max="1" step="0.01" />
+                    <div>
+                        <label for="edit-name">Recipe Name: </label>
+                        <input type="text" v-model="editDraft.name" />
+                    </div>
+                    <div>
+                        <label for="edit-servings-per-batch">Servings per Batch: </label>
+                        <input type="number" v-model.number="editDraft.servingsPerBatch" min="1" />
+                    </div>
+                    <div>
+                        <label for="edit-hours">Hours per Batch: </label>
+                        <input type="number" v-model.number="editDraft.hoursPerBatch" min="0" />
+                    </div>
+                    <div>
+                        <label for="edit-profit-margin">Profit Margin: </label>
+                        <input type="number" v-model.number="editDraft.profitMargin" min="0" max="1" step="0.01" />
+                    </div>
+                    <div>
+                        <label for="edit-batches-per-month">Batches per Month: </label>
+                        <input type="number" v-model.number="editDraft.batchesPerMonth" min="1" placeholder="1"/>
+                    </div>
+                    
                     <button @click="saveEdit">Save</button>
                     <button @click="cancelEdit">Cancel</button>
                     
@@ -93,7 +115,7 @@
 
                 <!--Normal Mode-->
                 <template v-else>
-                    {{ recipe.name }} - {{ recipe.servingsPerBatch }} Servings per Batch
+                    {{ recipe.name }} - {{ recipe.servingsPerBatch }} Servings per Batch, {{ recipe.hoursPerBatch }} Hours per Batch, {{ (recipe.profitMargin * 100).toFixed(0) }}% Profit Margin, {{ recipe.batchesPerMonth }} Batches per Month
                     <button @click="startEdit(recipe)">Edit</button>
                     <button @click="confirmDelete(recipe.id)">Delete</button>
                 </template>
@@ -104,6 +126,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { d } from 'vue-router/dist/index-D_VEAp3P.js'
 import { usePantryStore } from '~/stores/pantry'
 import { useRecipesStore, type RecipeIngredient, type Recipe  } from '~/stores/recipes'
 
@@ -118,6 +141,7 @@ const newCookingQuantity = ref(1)
 const newCookingUnit = ref('')
 const newHoursPerBatch = ref(1)
 const newProfitMargin = ref(0.30) // Default 
+const newBatchesPerMonth = ref(1) // Default to 1 batch per month for new recipes, can be edited later in the recipe details page when that is implemented
 const units =  ['cup', 
     'tablespoon', 
     'teaspoon', 
@@ -143,6 +167,7 @@ function resetForm() {
     newRecipeIngredients.value = []
     newHoursPerBatch.value = 1
     newProfitMargin.value = 0.30
+    newBatchesPerMonth.value = 1
 }
 
 function resetSubForm() {
@@ -154,12 +179,12 @@ function resetSubForm() {
 function addRecipe() {
     // Validate 
 
-    if (!newRecipeName.value.trim() || newServingsPerBatch.value < 1 || newRecipeIngredients.value.length === 0 || newHoursPerBatch.value <=0 || newProfitMargin.value < 0 || newProfitMargin.value >= 1) {
+    if (!newRecipeName.value.trim() || newServingsPerBatch.value < 1 || newRecipeIngredients.value.length === 0 || newHoursPerBatch.value <=0 || newProfitMargin.value < 0 || newProfitMargin.value >= 1 || newBatchesPerMonth.value < 1) {
         alert('Please enter a valid recipe name and at least 1 serving per batch before adding a recipe, and ensure at least one ingredient is added.')
         return
     }
 
-    recipeStore.addRecipe(newRecipeName.value, newRecipeIngredients.value, newServingsPerBatch.value, newHoursPerBatch.value, newProfitMargin.value)
+    recipeStore.addRecipe(newRecipeName.value, newRecipeIngredients.value, newServingsPerBatch.value, newHoursPerBatch.value, newProfitMargin.value, newBatchesPerMonth.value)
     resetForm()
 }
 
@@ -198,11 +223,11 @@ function saveEdit(){
     if (editingId.value === null || !editDraft.value) return    
 
     // Validate with addRecipe rules - name, servings per batch, hours per batch, profit margin, and at least 1 ingredient
-    if (!editDraft.value?.name.trim() || editDraft.value.servingsPerBatch < 1 || editDraft.value.ingredients.length === 0 || editDraft.value.hoursPerBatch <=0 || editDraft.value.profitMargin < 0 || editDraft.value.profitMargin >= 1) {
-        alert('Please enter a valid recipe name and at least 1 serving per batch before saving the recipe, and ensure at least one ingredient is added.')
+    if (!editDraft.value?.name.trim() || editDraft.value.servingsPerBatch < 1 || editDraft.value.ingredients.length === 0 || editDraft.value.hoursPerBatch <=0 || editDraft.value.profitMargin < 0 || editDraft.value.profitMargin >= 1 || editDraft.value.batchesPerMonth < 1) {
+        alert('Please enter a valid recipe name and at least 1 serving per batch before saving the recipe, and ensure at least one ingredient is added and that batches per month is at least 1.')
         return
     }
-    recipeStore.updateRecipe(editingId.value, editDraft.value.name, editDraft.value.ingredients, editDraft.value.servingsPerBatch, editDraft.value.hoursPerBatch, editDraft.value.profitMargin)
+    recipeStore.updateRecipe(editingId.value, editDraft.value.name, editDraft.value.ingredients, editDraft.value.servingsPerBatch, editDraft.value.hoursPerBatch, editDraft.value.profitMargin, editDraft.value.batchesPerMonth)
 
     // Reset editing state
     editingId.value = null
