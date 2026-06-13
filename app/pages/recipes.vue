@@ -126,7 +126,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { d } from 'vue-router/dist/index-D_VEAp3P.js'
 import { usePantryStore } from '~/stores/pantry'
 import { useRecipesStore, type RecipeIngredient, type Recipe  } from '~/stores/recipes'
 
