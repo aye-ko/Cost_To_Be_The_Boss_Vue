@@ -4,8 +4,12 @@
         <p>Add Ingredients to Pantry.</p>
         <div>
             <label for="ingredient-name">Ingredient Name: </label>
-            <input id="ingredient-name" type="text" v-model="newName" list="fao-options" placeholder="Ingredient Name" />
+            <input id="ingredient-name" type="text" v-model="newName" @input="showList =true" placeholder="Ingredient Name" />
         </div>
+        <ul v-if="showList && matchedIngredients.length">
+            <li v-for="item in matchedIngredients" :key="item.name"
+            @click="selectIngredient(item.name)">{{ item.name }}</li>
+        </ul>
 
         <div>
             <label for="ingredient-quantity">Quantity: </label>
@@ -83,10 +87,11 @@
 
 
 <script setup lang="ts">   
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { usePantryStore } from '~/stores/pantry'
 import type { Ingredient } from '~/stores/pantry'
 import densities from '~/data/densities.json'
+import { rankIngredients } from '~/utils/rankIngredients'
 
 const pantry = usePantryStore()
 const newName = ref('')
@@ -108,6 +113,19 @@ const units = ['cup',
 
 const editingId = ref<number|null>(null)
 const editDraft = ref({ name: '', quantity: 0, unit: '', cost: 0 })
+
+const matchedIngredients = computed(() => {
+    if (!newName.value.trim()) return []
+    return rankIngredients(newName.value, densities).filter(item => item.name.toLowerCase().includes(newName.value.toLowerCase()))
+    })
+
+const showList = ref(false)
+
+function selectIngredient(name: string) {
+    console.log('clicked:', name)
+    newName.value = name
+    showList.value = false
+}
 
 function resetForm() {
   // Reset
@@ -174,6 +192,14 @@ label {
     display: inline-block;
     width: 150px;
     margin-top: 10px;
+}
+
+li {
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #eee;
 }
 
 </style>
