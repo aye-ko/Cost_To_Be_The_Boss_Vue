@@ -7,8 +7,8 @@
             <input id="ingredient-name" type="text" v-model="newName" @input="showList =true" placeholder="Ingredient Name" />
         </div>
         <ul v-if="showList && matchedIngredients.length">
-            <li v-for="item in matchedIngredients" :key="item.name"
-            @click="selectIngredient(item.name)">{{ item.name }}</li>
+            <li v-for="(item, index) in matchedIngredients" :key="index"
+                @click="selectIngredient(item.name)">{{ item.name }}</li>
         </ul>
 
         <div>
@@ -116,8 +116,10 @@ const editDraft = ref({ name: '', quantity: 0, unit: '', cost: 0 })
 
 const matchedIngredients = computed(() => {
     if (!newName.value.trim()) return []
-    return rankIngredients(newName.value, densities).filter(item => item.name.toLowerCase().includes(newName.value.toLowerCase()))
-    })
+    const words = newName.value.toLowerCase().split(/\s+/)
+    return rankIngredients(newName.value, densities)
+        .filter(item => words.every(word => item.name.toLowerCase().includes(word)))
+})
 
 const showList = ref(false)
 
