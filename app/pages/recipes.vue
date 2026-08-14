@@ -40,7 +40,7 @@
             <input type="number" v-model.number="newCookingQuantity" placeholder="Quantity" />
         <select v-model="newCookingUnit">
             <option value="">-- Select unit --</option>
-            <option v-for="unit in units" :key="unit" :value="unit">
+            <option v-for="unit in allowedUnits" :key="unit" :value="unit">
                 {{ unit }}
             </option>
         </select>
@@ -125,10 +125,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { usePantryStore } from '~/stores/pantry'
 import { useRecipesStore, type RecipeIngredient, type Recipe  } from '~/stores/recipes'
-
+import { unitKind } from '~/utils/conversion'
+import  densities  from '~/data/densities.json'
 
 const recipeStore = useRecipesStore()
 const pantryStore = usePantryStore()
@@ -159,6 +160,20 @@ const editDraft = ref<Recipe | null>(null)
 const editSubFormIngredientId = ref<number | null>(null)
 const editSubFormCookingQuantity = ref(1)
 const editSubFormCookingUnit = ref('')
+
+
+const allowedUnits = computed(() => { // Compute allowed units based on the selected ingredient
+    if (!newIngredientId.value) return units // Return all units if no ingredient is selected
+
+    const ingredient = pantryStore.ingredients.find(i => i.id === newIngredientId.value) // Find the selected ingredient
+    if (!ingredient) return units // Return all units if the ingredient is not found
+    if (unitKind(ingredient.unit) === 'count') return units.filter(u => unitKind(u) === 'count') // If the ingredient's unit is a count, return only count units
+    const isInFAO = densities.some(d => d.name === ingredient.name) // Check if the ingredient is in the densities list
+    if (isInFAO) { return units } // If the ingredient is in the densities list, return all units
+    const targetKind = unitKind(ingredient.unit)  // Return the units in the same type as the ingredient's unitKind
+    return units.filter(u => unitKind(u) === targetKind) // Return the units in the same type as the ingredient's unitKind
+
+})
 
 function resetForm() {
     newRecipeName.value = ''
@@ -267,6 +282,7 @@ function resetEditSubForm() {
     editSubFormCookingQuantity.value = 1
     editSubFormCookingUnit.value = ''
 }   
+
 
 
 </script>
