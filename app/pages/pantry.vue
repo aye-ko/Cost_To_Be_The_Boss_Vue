@@ -92,6 +92,7 @@ import { usePantryStore } from '~/stores/pantry'
 import type { Ingredient } from '~/stores/pantry'
 import densities from '~/data/densities.json'
 import { rankIngredients } from '~/utils/rankIngredients'
+import { validateIngredientName } from '~/utils/validateIngredientName'
 
 const pantry = usePantryStore()
 const newName = ref('')
@@ -145,8 +146,10 @@ function addIngredient() {
     }
     const isInFAO = densities.some(d => d.name === newName.value)
     if (!isInFAO) {
-        alert('Ingredient must be selected from the FAO list')
-        return
+        if (!validateIngredientName(newName.value)) {
+            alert('Check for typos and special characters')
+            return
+        }
     }
 
     pantry.addIngredient(newName.value, newQuantity.value, newUnit.value, newCost.value)
@@ -171,8 +174,8 @@ function saveEdit(){
         return
     }   
     const isInFAO = densities.some(d => d.name === editDraft.value.name)
-    if (!isInFAO) {
-        alert('Ingredient must be selected from the FAO list')
+    if (!isInFAO && !validateIngredientName(editDraft.value.name)) {
+        alert('Please check for typos and special characters in the ingredient name')
         return
     }
 
