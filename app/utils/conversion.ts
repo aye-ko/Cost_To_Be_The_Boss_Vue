@@ -56,3 +56,16 @@ export function convert(ingredientName: string, recipeQty: number, recipeUnit:st
     return {recipe_g, pantry_g}
 
 }
+
+export function unitKind(unit: string): 'weight' | 'volume' | 'count' | null {
+    if (unit in weightTable) {
+        return 'weight'
+    }
+    if (unit in volumeTable) {
+        return 'volume'
+    }
+    if (unit === 'each') {
+        return 'count'
+    }
+    return null
+}
