@@ -125,7 +125,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { usePantryStore } from '~/stores/pantry'
 import { useRecipesStore, type RecipeIngredient, type Recipe  } from '~/stores/recipes'
 import { unitKind } from '~/utils/conversion'
@@ -283,6 +283,11 @@ function resetEditSubForm() {
     editSubFormCookingUnit.value = ''
 }   
 
+// Fixing a bug where the Quantity unit does not reset when the ingredient is changed in the sub-form. This is because the allowedUnits computed property is not reactive to changes in newIngredientId. We can fix this by watching newIngredientId and resetting newCookingUnit when it changes.
+
+watch(newIngredientId, () => {
+    newCookingUnit.value = ''
+})  
 
 
 </script>
