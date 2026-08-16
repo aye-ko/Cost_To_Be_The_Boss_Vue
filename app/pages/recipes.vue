@@ -51,9 +51,14 @@
         <button @click="addIngredientToRecipe">Add Ingredient</button>
         
         <h4>Recipe Ingredients</h4>
+
+        <!-- add delete ingredient button and let it persist through refresh-->
         <ul>
-            <li v-for="ingredient in newRecipeIngredients" :key="ingredient.ingredientId">
+            <li v-for="(ingredient,index) in newRecipeIngredients" :key="index">
                 {{ pantryStore.ingredients.find(i => i.id === ingredient.ingredientId)?.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+
+                <button @click="removeRecipeIngredient(newRecipeIngredients.indexOf(ingredient))">Delete</button>
+                
             </li>
         </ul>
         
@@ -227,6 +232,10 @@ function confirmDelete(recipeId: number) {
     }
 }
 
+function removeRecipeIngredient(index: number) {
+    newRecipeIngredients.value = newRecipeIngredients.value.filter((item, i) => i !== index)
+}
+
 function startEdit(recipe:Recipe) {
     editingId.value = recipe.id
     editDraft.value = JSON.parse(JSON.stringify(recipe)) // Create a copy for editing    
@@ -287,7 +296,7 @@ function resetEditSubForm() {
 
 watch(newIngredientId, () => {
     newCookingUnit.value = ''
-})  
+})
 
 
 </script>
