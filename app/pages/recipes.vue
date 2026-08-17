@@ -142,6 +142,7 @@ const newRecipeName = ref('')
 const newServingsPerBatch = ref(1)
 const newRecipeIngredients= ref<RecipeIngredient[]>([])
 const newIngredientId = ref<number | null>(null)
+
 const newCookingQuantity = ref(1)
 const newCookingUnit = ref('')
 const newHoursPerBatch = ref(1)
@@ -167,18 +168,21 @@ const editSubFormCookingQuantity = ref(1)
 const editSubFormCookingUnit = ref('')
 
 
-const allowedUnits = computed(() => { // Compute allowed units based on the selected ingredient
-    if (!newIngredientId.value) return units // Return all units if no ingredient is selected
+const allowedUnits = computed(() => unitForIngredient(newIngredientId.value))
 
-    const ingredient = pantryStore.ingredients.find(i => i.id === newIngredientId.value) // Find the selected ingredient
-    if (!ingredient) return units // Return all units if the ingredient is not found
-    if (unitKind(ingredient.unit) === 'count') return units.filter(u => unitKind(u) === 'count') // If the ingredient's unit is a count, return only count units
-    const isInFAO = densities.some(d => d.name === ingredient.name) // Check if the ingredient is in the densities list
-    if (isInFAO) { return units } // If the ingredient is in the densities list, return all units
-    const targetKind = unitKind(ingredient.unit)  // Return the units in the same type as the ingredient's unitKind
-    return units.filter(u => unitKind(u) === targetKind) // Return the units in the same type as the ingredient's unitKind
 
-})
+// a function to replace the steps in allowedUnits so I can reuse it in editing
+function unitForIngredient(id: (number | null)): string[] { 
+    if (!id) return units
+    const idName = pantryStore.ingredients.find( i => i.id === id )
+    if (!idName){return units}
+
+    if (unitKind(idName.unit) === 'count') return units.filter(u => unitKind(u) === 'count')
+    const isInFAO = densities.some(d => d.name === idName.name)
+    if (isInFAO) {return units}
+    const targetKind = unitKind(idName.unit)
+    return units.filter(u => unitKind(u) === targetKind)
+}
 
 function resetForm() {
     newRecipeName.value = ''
