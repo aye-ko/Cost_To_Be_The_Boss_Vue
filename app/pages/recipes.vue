@@ -74,7 +74,7 @@
                         </option>
                     </select>
                     <button @click = "cancelIngredientEdit"> Cancel</button>
-                    <button> Save</button>
+                    <button @click = "saveIngredientEdit"> Save</button>
                 </template>
                 <template v-else>
                     {{ pantryStore.ingredients.find(i => i.id === ingredient.ingredientId)?.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
@@ -222,6 +222,25 @@ function cancelIngredientEdit() {
     }
 }
 
+function saveIngredientEdit() {
+    const draft = editingIngredientDraft.value
+
+    if (editingIngredientIndex.value === null) return
+
+    if (draft.ingredientId === null || draft.quantity <= 0 || !draft.unit) {
+        alert('Please select an ingredient and enter valid quantity and unit before saving the edit')
+        return
+    }
+
+    newRecipeIngredients.value[editingIngredientIndex.value] = { 
+        ingredientId: draft.ingredientId, 
+        quantity: draft.quantity, 
+        unit: draft.unit 
+    }
+
+    cancelIngredientEdit()
+
+}
 
 // a function to replace the steps in allowedUnits so I can reuse it in editing
 function unitForIngredient(id: (number | null)): string[] { 
