@@ -52,13 +52,35 @@
         
         <h4>Recipe Ingredients</h4>
 
-        <!-- add delete ingredient button and let it persist through refresh-->
+        <!-- add delete ingredient button and  edit button let it persist through refresh-->
         <ul>
             <li v-for="(ingredient,index) in newRecipeIngredients" :key="index">
-                {{ pantryStore.ingredients.find(i => i.id === ingredient.ingredientId)?.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
-
-                <button @click="removeRecipeIngredient(newRecipeIngredients.indexOf(ingredient))">Delete</button>
-                
+                <template v-if="editingIngredientIndex === index">
+                    <!-- Edit Mode -->
+                    <!-- Ingredient select -->
+                    <select v-model="editingIngredientDraft.ingredientId">
+                        <option :value="null">-- Select an ingredient --</option>
+                        <option v-for="ingredient in pantryStore.ingredients" :key="ingredient.id" :value="ingredient.id">
+                            {{ ingredient.name }}
+                        </option>
+                    </select>
+                    <!-- quantity number input -->
+                    <input type="number" v-model.number="editingIngredientDraft.quantity" placeholder="Quantity" />
+                    <!-- unit select over editAllowedUnit -->
+                    <select v-model="editingIngredientDraft.unit">
+                        <option value="">-- Select unit --</option>  
+                        <option v-for="unit in editAllowedUnits" :key="unit" :value="unit">
+                            {{ unit }}
+                        </option>
+                    </select>
+                    <button @click = "cancelIngredientEdit"> Cancel</button>
+                    <button> Save</button>
+                </template>
+                <template v-else>
+                    {{ pantryStore.ingredients.find(i => i.id === ingredient.ingredientId)?.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+                    <button @click="editRecipeIngredient(index)">Edit</button>
+                    <button @click="removeRecipeIngredient(index)">Delete</button>
+                </template>
             </li>
         </ul>
         
@@ -116,7 +138,14 @@
                         </option>
                     </select>
                     <button @click="addIngredientToEditDraft">Add Ingredient</button>
+
+                    <div>
+                        <button @click="saveEdit">Save</button>
+                        <button @click="cancelEdit">Cancel</button>
+                    </div>
+
                 </template>
+                
 
                 <!--Normal Mode-->
                 <template v-else>
@@ -167,8 +196,31 @@ const editSubFormIngredientId = ref<number | null>(null)
 const editSubFormCookingQuantity = ref(1)
 const editSubFormCookingUnit = ref('')
 
-
 const allowedUnits = computed(() => unitForIngredient(newIngredientId.value))
+
+const editingIngredientIndex = ref<number | null>(null)
+const editingIngredientDraft = ref({
+    ingredientId: null as number | null,
+    quantity: 1,
+    unit: ''
+})
+const editAllowedUnits = computed(() => unitForIngredient(editingIngredientDraft.value.ingredientId))
+
+function editRecipeIngredient(index: number) {
+    const ingredient = newRecipeIngredients.value[index]
+    if(!ingredient) return
+    editingIngredientIndex.value = index
+    editingIngredientDraft.value = { ...ingredient }
+}
+
+function cancelIngredientEdit() {
+    editingIngredientIndex.value = null
+    editingIngredientDraft.value = {
+        ingredientId: null,
+        quantity: 1,
+        unit: ''
+    }
+}
 
 
 // a function to replace the steps in allowedUnits so I can reuse it in editing
@@ -300,6 +352,12 @@ function resetEditSubForm() {
 
 watch(newIngredientId, () => {
     newCookingUnit.value = ''
+})
+
+watch(() => editingIngredientDraft.value.ingredientId, (newId, oldId) => {
+    if (oldId !== null) {
+        editingIngredientDraft.value.unit = ''
+    }
 })
 
 
