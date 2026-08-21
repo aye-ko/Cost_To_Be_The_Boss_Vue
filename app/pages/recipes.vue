@@ -4,24 +4,24 @@
         <p>Create the Recipes</p>
         <div>
             <label for="recipe-name">Recipe Name: </label>
-            <input id="recipe-name" type="text" v-model="newRecipeName" placeholder="Recipe Name" />
+            <input id="recipe-name" type="text" v-model="recipeStore.draftRecipeName" placeholder="Recipe Name" />
         </div>
         <div>
             <label for="servings-per-batch">Servings per Batch: </label>
-            <input id = "servings-per-batch" type="number" v-model.number="newServingsPerBatch" min="1" placeholder="Servings per Batch" />
+            <input id = "servings-per-batch" type="number" v-model.number="recipeStore.draftRecipeServingsPerBatch" min="1" placeholder="Servings per Batch" />
         </div>
         <div>
             <label for="hours-per-batch">Hours per Batch: </label>
-            <input id = "hours-per-batch" type="number" v-model.number="newHoursPerBatch" min="0" placeholder="Hours per Batch" />
+            <input id = "hours-per-batch" type="number" v-model.number="recipeStore.draftRecipeHoursPerBatch" min="0" placeholder="Hours per Batch" />
         </div>
         <div>
             <label for="profit-margin">Profit Margin: </label>
-            <input id= "profit-margin" type="number" v-model.number="newProfitMargin" min="0" max="1" step="0.01" placeholder="Profit Margin (e.g. 0.30 for 30%)" />    
+            <input id= "profit-margin" type="number" v-model.number="recipeStore.draftRecipeProfitMargin" min="0" max="1" step="0.01" placeholder="Profit Margin (e.g. 0.30 for 30%)" />    
         </div>
 
         <div>
             <label for="batches-per-month">Batches per Month: </label>
-            <input id= "batches-per-month" type="number" v-model.number="newBatchesPerMonth" min="1" placeholder="Batches per Month" />
+            <input id= "batches-per-month" type="number" v-model.number="recipeStore.draftRecipeHoursPerBatch" min="1" placeholder="Batches per Month" />
         </div>
         
         <h3>Add an Ingredient</h3>
@@ -54,7 +54,7 @@
 
         <!-- add delete ingredient button and  edit button let it persist through refresh-->
         <ul>
-            <li v-for="(ingredient,index) in newRecipeIngredients" :key="index">
+            <li v-for="(ingredient,index) in recipeStore.draftRecipeIngredients" :key="index">
                 <template v-if="editingIngredientIndex === index">
                     <!-- Edit Mode -->
                     <!-- Ingredient select -->
@@ -167,16 +167,11 @@ import  densities  from '~/data/densities.json'
 
 const recipeStore = useRecipesStore()
 const pantryStore = usePantryStore()
-const newRecipeName = ref('')
-const newServingsPerBatch = ref(1)
-const newRecipeIngredients= ref<RecipeIngredient[]>([])
 const newIngredientId = ref<number | null>(null)
 
 const newCookingQuantity = ref(1)
 const newCookingUnit = ref('')
-const newHoursPerBatch = ref(1)
-const newProfitMargin = ref(0.30) // Default 
-const newBatchesPerMonth = ref(1) // Default to 1 batch per month for new recipes, can be edited later in the recipe details page when that is implemented
+
 const units =  ['cup', 
     'tablespoon', 
     'teaspoon', 
@@ -207,7 +202,7 @@ const editingIngredientDraft = ref({
 const editAllowedUnits = computed(() => unitForIngredient(editingIngredientDraft.value.ingredientId))
 
 function editRecipeIngredient(index: number) {
-    const ingredient = newRecipeIngredients.value[index]
+    const ingredient =  recipeStore.draftRecipeIngredients[index]
     if(!ingredient) return
     editingIngredientIndex.value = index
     editingIngredientDraft.value = { ...ingredient }
@@ -232,7 +227,7 @@ function saveIngredientEdit() {
         return
     }
 
-    newRecipeIngredients.value[editingIngredientIndex.value] = { 
+    recipeStore.draftRecipeIngredients[editingIngredientIndex.value] = { 
         ingredientId: draft.ingredientId, 
         quantity: draft.quantity, 
         unit: draft.unit 
@@ -256,12 +251,12 @@ function unitForIngredient(id: (number | null)): string[] {
 }
 
 function resetForm() {
-    newRecipeName.value = ''
-    newServingsPerBatch.value = 1
-    newRecipeIngredients.value = []
-    newHoursPerBatch.value = 1
-    newProfitMargin.value = 0.30
-    newBatchesPerMonth.value = 1
+    recipeStore.draftRecipeName = ''
+    recipeStore.draftRecipeServingsPerBatch= 1
+    recipeStore.draftRecipeIngredients = []
+    recipeStore.draftRecipeHoursPerBatch = 1
+    recipeStore.draftRecipeProfitMargin = 0.30
+    recipeStore.draftRecipeHoursPerBatch = 1
 }
 
 function resetSubForm() {
@@ -273,12 +268,12 @@ function resetSubForm() {
 function addRecipe() {
     // Validate 
 
-    if (!newRecipeName.value.trim() || newServingsPerBatch.value < 1 || newRecipeIngredients.value.length === 0 || newHoursPerBatch.value <=0 || newProfitMargin.value < 0 || newProfitMargin.value >= 1 || newBatchesPerMonth.value < 1) {
+    if (!recipeStore.draftRecipeName.trim() ||recipeStore.draftRecipeServingsPerBatch < 1 || recipeStore.draftRecipeIngredients.length === 0 || recipeStore.draftRecipeHoursPerBatch <=0 || recipeStore.draftRecipeProfitMargin < 0 || recipeStore.draftRecipeProfitMargin >= 1 || recipeStore.draftRecipeHoursPerBatch < 1) {
         alert('Please enter a valid recipe name and at least 1 serving per batch before adding a recipe, and ensure at least one ingredient is added.')
         return
     }
 
-    recipeStore.addRecipe(newRecipeName.value, newRecipeIngredients.value, newServingsPerBatch.value, newHoursPerBatch.value, newProfitMargin.value, newBatchesPerMonth.value)
+    recipeStore.addRecipe(recipeStore.draftRecipeName, recipeStore.draftRecipeIngredients, recipeStore.draftRecipeServingsPerBatch, recipeStore.draftRecipeHoursPerBatch, recipeStore.draftRecipeProfitMargin, recipeStore.draftRecipeHoursPerBatch)
     resetForm()
 }
 
@@ -291,7 +286,7 @@ function addIngredientToRecipe(){
 
     // Push one ingredient onto newRecipeIngredients.value
 
-    newRecipeIngredients.value.push({ ingredientId: newIngredientId.value, 
+    recipeStore.draftRecipeIngredients.push({ ingredientId: newIngredientId.value, 
         quantity: newCookingQuantity.value, 
         unit: newCookingUnit.value 
     })
@@ -308,7 +303,7 @@ function confirmDelete(recipeId: number) {
 }
 
 function removeRecipeIngredient(index: number) {
-    newRecipeIngredients.value = newRecipeIngredients.value.filter((item, i) => i !== index)
+    recipeStore.draftRecipeIngredients = recipeStore.draftRecipeIngredients.filter((item, i) => i !== index)
 }
 
 function startEdit(recipe:Recipe) {
