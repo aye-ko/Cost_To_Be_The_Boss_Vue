@@ -84,7 +84,14 @@
             </li>
         </ul>
         
-        <button @click="addRecipe">Add Recipe</button>
+        <div>
+            <button @click="addRecipe">Add Recipe</button>   
+        </div>
+
+        <div>
+            <button @click="confirmClearDraft">Clear Draft</button>
+        </div>
+
         <h4>Saved Recipes</h4>
         <p v-if="recipeStore.recipes.length===0">No recipes yet.</p>
         <ul v-else>
@@ -299,6 +306,12 @@ function addIngredientToRecipe(){
 function confirmDelete(recipeId: number) {
     if (confirm('Are you sure you want to delete this recipe?')) {
         recipeStore.removeRecipe(recipeId)
+    }
+}
+
+function confirmClearDraft() {
+    if (confirm('Are you sure you want to clear the draft recipe? This will remove all unsaved changes.')) {
+        resetForm()
     }
 }
 
