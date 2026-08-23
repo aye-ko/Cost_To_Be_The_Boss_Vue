@@ -171,6 +171,7 @@ import { usePantryStore } from '~/stores/pantry'
 import { useRecipesStore, type RecipeIngredient, type Recipe  } from '~/stores/recipes'
 import { unitKind } from '~/utils/conversion'
 import  densities  from '~/data/densities.json'
+import { units } from '~/utils/units'
 
 const recipeStore = useRecipesStore()
 const pantryStore = usePantryStore()
@@ -179,18 +180,6 @@ const newIngredientId = ref<number | null>(null)
 const newCookingQuantity = ref(1)
 const newCookingUnit = ref('')
 
-const units =  ['cup', 
-    'tablespoon', 
-    'teaspoon', 
-    'ounce', 
-    'pound', 
-    'gram', 
-    'milliliter', 
-    'each', 
-    'kilogram', 
-    'gallon', 
-    'liter'
-]
 const editingId = ref<number|null>(null)
 const editDraft = ref<Recipe | null>(null)
 
