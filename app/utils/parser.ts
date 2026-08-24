@@ -21,9 +21,18 @@ export function parseIngredientLine(line: string): ParseResult {
             nameGuess: null, warnings: [], reason: 'no quantity found'}
     }
 
-    if (words.length < 3) {
-        return {verdict: 'refused', unit: null, quantity: null, 
-            nameGuess: null, warnings: [], reason: 'not enough words'}
+    if (words.length === 2) {
+        const name = words[1]
+        if (name === undefined) {return {verdict: 'refused', unit: null, quantity: null, 
+            nameGuess: null, warnings: [], reason: 'no name found'}}
+        return {verdict: 'warning', unit: 'each', quantity: quantity, 
+            nameGuess: name, warnings: ['no unit specified']}
+        
+    }
+
+    if (words.length < 2) {
+        return {verdict: 'refused', unit: null , quantity: null, 
+            nameGuess: null, warnings: [], reason: 'too short to parse. not enough words'}
     }
 
     const unitWords = words[1]

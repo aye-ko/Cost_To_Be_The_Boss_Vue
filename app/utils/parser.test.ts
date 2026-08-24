@@ -9,4 +9,13 @@ describe('parseIngredientLine', () => {
         expect(result.quantity).toBe(2)
         expect(result.unit).toBe('cup')
     })
+
+    it('raise a warning for 2 eggs', () => {
+        const result = parseIngredientLine('2 eggs')
+        expect(result.verdict).toBe('warning')
+        expect(result.nameGuess).toBe('eggs')
+        expect(result.quantity).toBe(2)
+        expect(result.unit).toBe('each')
+        expect(result.warnings).toContain('no unit specified')
+    })
 })
