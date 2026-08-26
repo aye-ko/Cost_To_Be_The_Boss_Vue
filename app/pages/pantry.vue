@@ -93,24 +93,14 @@ import type { Ingredient } from '~/stores/pantry'
 import densities from '~/data/densities.json'
 import { rankIngredients } from '~/utils/rankIngredients'
 import { validateIngredientName } from '~/utils/validateIngredientName'
+import { units } from '~/utils/units'
 
 const pantry = usePantryStore()
 const newName = ref('')
 const newQuantity = ref(0)
 const newUnit = ref('')
 const newCost = ref(0)
-const units = ['cup', 
-    'tablespoon', 
-    'teaspoon', 
-    'ounce', 
-    'pound', 
-    'gram', 
-    'milliliter', 
-    'each', 
-    'kilogram', 
-    'gallon', 
-    'liter'
-]
+
 
 const editingId = ref<number|null>(null)
 const editDraft = ref({ name: '', quantity: 0, unit: '', cost: 0 })
