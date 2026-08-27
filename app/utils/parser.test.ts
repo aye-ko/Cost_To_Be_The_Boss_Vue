@@ -18,4 +18,11 @@ describe('parseIngredientLine', () => {
         expect(result.unit).toBe('each')
         expect(result.warnings).toContain('no unit specified')
     })
+    it('parses a fraction glyph quantity', () => {
+        const result = parseIngredientLine('1 ½ teaspoon creole seasoning')
+        expect(result.verdict).toBe('parsed')
+        expect(result.nameGuess).toBe('creole seasoning')
+        expect(result.quantity).toBe(1.5)
+        expect(result.unit).toBe('teaspoon')
+    })
 })
