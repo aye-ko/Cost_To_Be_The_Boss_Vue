@@ -11,9 +11,28 @@ export interface ParseResult {
 
 }
 
+const glyphs: Record<string, number> = {
+    '¼': 0.25,
+    '½': 0.5,
+    '¾': 0.75,
+    '⅓': 1/3,
+    '⅔': 2/3,
+    '⅛': 0.125,
+    '⅜': 0.375,
+    '⅝': 0.625,
+    '⅞': 0.875
+}
+const glyphPattern = new RegExp(`(\\d+)? ?([${Object.keys(glyphs).join('')}])`,'g')
+
 export function parseIngredientLine(line: string): ParseResult {
 
-    const cleanedLine = line.toLowerCase()
+    const cleanedLine = line.toLowerCase().replace(glyphPattern,(match, whole, glyph) =>{
+        const base = whole ? Number(whole) : 0
+        const value = glyphs[glyph]
+        if(value === undefined) return match
+        return String(base + value)
+
+    })
     const words = cleanedLine.split(' ')
     const quantity = Number(words[0])
     if(Number.isNaN(quantity)) {
