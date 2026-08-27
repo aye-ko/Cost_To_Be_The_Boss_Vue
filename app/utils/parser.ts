@@ -22,10 +22,17 @@ const glyphs: Record<string, number> = {
     '⅝': 0.625,
     '⅞': 0.875
 }
+const glyphPattern = new RegExp(`(\\d+)? ?([${Object.keys(glyphs).join('')}])`,'g')
 
 export function parseIngredientLine(line: string): ParseResult {
 
-    const cleanedLine = line.toLowerCase()
+    const cleanedLine = line.toLowerCase().replace(glyphPattern,(match, whole, glyph) =>{
+        const base = whole ? Number(whole) : 0
+        const value = glyphs[glyph]
+        if(value === undefined) return match
+        return String(base + value)
+
+    })
     const words = cleanedLine.split(' ')
     const quantity = Number(words[0])
     if(Number.isNaN(quantity)) {

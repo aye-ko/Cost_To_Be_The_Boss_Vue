@@ -12,3 +12,4 @@ The log should be committed publicly, and part of the project.
 
 ## Logs
 
+- Replacements are strings and the number comes later. The table ges swapped in and the confirm the replaced line
