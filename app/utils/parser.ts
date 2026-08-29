@@ -23,16 +23,23 @@ const glyphs: Record<string, number> = {
     '⅞': 0.875
 }
 const glyphPattern = new RegExp(`(\\d+)? ?([${Object.keys(glyphs).join('')}])`,'g')
-
+const slashFractionPattern = /(\d+)? ?(\d+)\/(\d+)/g
 export function parseIngredientLine(line: string): ParseResult {
 
-    const cleanedLine = line.toLowerCase().replace(glyphPattern,(match, whole, glyph) =>{
+    const cleanedLine = line.toLowerCase()
+    .replace(glyphPattern,(match, whole, glyph) =>{
         const base = whole ? Number(whole) : 0
         const value = glyphs[glyph]
         if(value === undefined) return match
         return String(base + value)
-
+        })
+    .replace(slashFractionPattern,(match, whole, numerator,denominator) => {            const base = whole ? Number(whole) : 0
+        if (Number(denominator) === 0) {return match}
+        const value = Number(numerator) / Number(denominator)
+        return String(base + value )     
     })
+
+
     const words = cleanedLine.split(' ')
     const quantity = Number(words[0])
     if(Number.isNaN(quantity)) {
