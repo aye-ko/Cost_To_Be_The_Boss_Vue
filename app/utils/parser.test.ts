@@ -32,4 +32,18 @@ describe('parseIngredientLine', () => {
         expect(result.quantity).toBe(1.5)
         expect(result.unit).toBe('teaspoon')
     })
+    it('parses abbreviations for tbs and unit tablespoon', () => {
+        const result = parseIngredientLine('1 tbs creole seasoning')
+        expect(result.verdict).toBe('parsed')
+        expect(result.nameGuess).toBe('creole seasoning')
+        expect(result.quantity).toBe(1)
+        expect(result.unit).toBe('tablespoon')
+    })
+    it('parses abbreviations for tbs. and fraction with a slash1 1/2', () => {
+        const result = parseIngredientLine('1 1/2 tbs. creole seasoning')
+        expect(result.verdict).toBe('parsed')
+        expect(result.nameGuess).toBe('creole seasoning')
+        expect(result.quantity).toBe(1.5)
+        expect(result.unit).toBe('tablespoon')
+    })
 })

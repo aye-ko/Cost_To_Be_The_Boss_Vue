@@ -22,6 +22,43 @@ const glyphs: Record<string, number> = {
     '⅝': 0.625,
     '⅞': 0.875
 }
+
+const unitAbbreviations : Record<string, string> = {
+
+    "c": "cup",
+    "c.": "cup",
+    "tsp": "teaspoon",
+    "tsp.":"teaspoon",
+    "t": "teaspoon",
+    "t.": "teaspoon",
+    "tbsp": "tablespoon",
+    "tbsp.":"tablespoon",
+    "tbs": "tablespoon",
+    "tbs.": "tablespoon",
+    "tbl": "tablespoon",
+    "tbl.":"tablespoon",
+    "tblsp": "tablespoon",
+    "tblsp.": "tablespoon",
+    "ml": "milliliter",
+    "ml.": "milliliter",
+    "l": "liter",
+    "l.":"liter",
+    "gal": "gallon",
+    "gal.": "gallon",
+    "oz": "ounce",
+    "oz.": "ounce",
+    "lb": "pound",
+    "lb.": "pound",
+    "lbs": "pound",
+    "lbs.": "pound",
+    "g": "gram",
+    "g.": "gram",
+    "kg": "kilogram",
+    "kg.": "kilogram",
+    "ea": "each",
+    "ea.": "each"
+}
+
 const glyphPattern = new RegExp(`(\\d+)? ?([${Object.keys(glyphs).join('')}])`,'g')
 const slashFractionPattern = /(\d+)? ?(\d+)\/(\d+)/g
 export function parseIngredientLine(line: string): ParseResult {
@@ -66,9 +103,8 @@ export function parseIngredientLine(line: string): ParseResult {
         return {verdict: 'refused', unit: null, quantity: null, 
             nameGuess: null, warnings: [], reason: 'no unit found'}
     }        
-    let unit = unitWords
 
-
+    let unit = unitAbbreviations[unitWords] ?? unitWords
     if(!units.includes(unit)) {
         unit = unit.endsWith('s') ? unit.slice(0, -1) : unit
         if (!units.includes(unit)) {
