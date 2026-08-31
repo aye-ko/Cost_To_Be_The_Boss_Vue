@@ -59,6 +59,15 @@ const unitAbbreviations : Record<string, string> = {
     "ea.": "each"
 }
 
+const nonMeasurableUnits = [
+    'pinch', 
+    'pinches', 
+    'dash', 
+    'dashes', 
+    'handful', 
+    'smidgen'
+]
+
 const glyphPattern = new RegExp(`(\\d+)? ?([${Object.keys(glyphs).join('')}])`,'g')
 const slashFractionPattern = /(\d+)? ?(\d+)\/(\d+)/g
 export function parseIngredientLine(line: string): ParseResult {
@@ -102,14 +111,24 @@ export function parseIngredientLine(line: string): ParseResult {
     if (unitWords === undefined){
         return {verdict: 'refused', unit: null, quantity: null, 
             nameGuess: null, warnings: [], reason: 'no unit found'}
-    }        
+    } 
+    if (unitWords.startsWith('(')){
+        return {verdict:'refused', unit: null, quantity: null,
+            nameGuess: null, warnings: [], reason: 'parenthesis found, deferred'
+        }
+    }
+    if (nonMeasurableUnits.includes(unitWords)) {
+        return {verdict: 'refused', unit: null, quantity:null,
+            nameGuess: null, warnings: [], reason:`non-measurable unit: ${unitWords}`
+        }
+    }
 
     let unit = unitAbbreviations[unitWords] ?? unitWords
     if(!units.includes(unit)) {
         unit = unit.endsWith('s') ? unit.slice(0, -1) : unit
         if (!units.includes(unit)) {
-        return {verdict: 'refused', unit: null, quantity: null, 
-            nameGuess: null, warnings: [], reason: `unknown unit: ${unitWords}`}
+        return {verdict: 'warning', unit: 'each', quantity: quantity, 
+            nameGuess: words.slice(1).filter(word=> word !=='of').join(' '), warnings: ['no unit specified']}
         } 
     }
 
