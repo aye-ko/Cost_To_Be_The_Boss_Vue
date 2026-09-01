@@ -32,3 +32,6 @@ Ladder: screenshot tonight (pipeline proof) → phone-photo of a page (rung 1 pr
 No pre-filter: refusals + pantry-flags classify for free.
 Engine: one open-source Python OCR, backend, shootout next session against your specimen.
 Seam: backend returns raw lines; frontend loops the parser it already owns.
+
+9/1/2026
+ - ## to hide wait times behind paddleOCR wait time.  asynchronous background processing with a progressive-reveal UI is the answer
