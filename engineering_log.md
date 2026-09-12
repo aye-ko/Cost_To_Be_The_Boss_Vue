@@ -35,3 +35,25 @@ Seam: backend returns raw lines; frontend loops the parser it already owns.
 
 9/1/2026
  - ## to hide wait times behind paddleOCR wait time.  asynchronous background processing with a progressive-reveal UI is the answer
+
+ engine paddle ocr chosen based of rung 1 
+
+ async design to make latency issues. 
+ 
+
+ The wiring plan is complete. Ledger, in full:
+
+Bullet-strip rule — Normalize, leading-junk regex anchored to line start, evidence-grown character class, test-first
+Flow — v1 single-card: trigger on recipes page → honest spinner with expectation sentence → straight into the draft list; A′ multi-card queued behind Render concurrency evidence
+Failure — "couldn't read that photo — try a clearer shot?" + dropdowns already on screen as fallback
+Landing — three-tier straight-in: parsed clean, warned flagged, refused in a strip below with raw text + hand-fix; refusals logged
+Deferred, on their original terms — classifier, receipts, async multi-card
+
+To run FASTAPI
+
+use uvicorn main:app --reload
+
+then the http://127.0.0.1:8000/docs
+
+
+- Memory verdict: idle ~428 MB, peak observed ~550 MB during chili inference (Windows, Task Manager). Free tier (512 MB) confirmed unviable — over ceiling on first request. Starter paid tier (~2 GB) clears requirement ~4x. Decision on paying vs. alternatives: after vacation, with the wiring slice as the priority either way
