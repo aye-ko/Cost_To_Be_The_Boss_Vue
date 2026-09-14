@@ -2,6 +2,7 @@
     <div>
         <h2>Recipes</h2>
         <p>Create the Recipes</p>
+        <input type="file" accept="image/*" @change="runOCR">
         <div>
             <label for="recipe-name">Recipe Name: </label>
             <input id="recipe-name" type="text" v-model="recipeStore.draftRecipeName" placeholder="Recipe Name" />
@@ -175,20 +176,19 @@ import { units } from '~/utils/units'
 
 const recipeStore = useRecipesStore()
 const pantryStore = usePantryStore()
-const newIngredientId = ref<number | null>(null)
+const config = useRuntimeConfig()
 
+
+const newIngredientId = ref<number | null>(null)
 const newCookingQuantity = ref(1)
 const newCookingUnit = ref('')
-
 const editingId = ref<number|null>(null)
 const editDraft = ref<Recipe | null>(null)
-
 const editSubFormIngredientId = ref<number | null>(null)
 const editSubFormCookingQuantity = ref(1)
 const editSubFormCookingUnit = ref('')
 
 const allowedUnits = computed(() => unitForIngredient(newIngredientId.value))
-
 const editingIngredientIndex = ref<number | null>(null)
 const editingIngredientDraft = ref({
     ingredientId: null as number | null,
@@ -196,6 +196,7 @@ const editingIngredientDraft = ref({
     unit: ''
 })
 const editAllowedUnits = computed(() => unitForIngredient(editingIngredientDraft.value.ingredientId))
+
 
 function editRecipeIngredient(index: number) {
     const ingredient =  recipeStore.draftRecipeIngredients[index]
@@ -376,6 +377,22 @@ watch(() => editingIngredientDraft.value.ingredientId, (newId, oldId) => {
     }
 })
 
+async function runOCR(event: Event){
+    const files = (event.target as HTMLInputElement).files
+    if (!files || files.length === 0) return
+    const photo = files[0]
+    const formData = new FormData()
+    if(!photo) return
+    formData.append('file', photo)
+    const response = await fetch(`${config.public.apiBase}/ocr`, {
+        method: 'POST',
+        body: formData
+    
+    })
+    const data = await response.json()
+    console.log(data.lines)
+
+}
 
 </script>
 
