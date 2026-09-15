@@ -64,3 +64,16 @@ files are read and return lines
 guards are scheduled for next slice
 9/14/2026
 guard are in place three failure point verified, multiple images parsed some taking up to 2 minutes to parse
+
+
+# gotta add a scaling function to allow user to project how much ingredients they need to purchase to satisfy the recipe for x number of users. 
+
+# function should take what already exist, convert all to grams, scale and then convert it back to initial volume of measurement and round to ceiling whole number, and account for waste and things of that nature
+
+9/15/2026
+
+The ingredient parser with guards is live on vercel and the vercel website connects to render and all is well with the cosmos
+
+# feature/ocrFeedback
+completed
+add revert for the pictures if user wants it
