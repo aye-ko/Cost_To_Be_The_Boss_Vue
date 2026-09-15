@@ -3,6 +3,9 @@
         <h2>Recipes</h2>
         <p>Create the Recipes</p>
         <input type="file" accept="image/*" @change="runOCR">
+        <p v-if="status === 'error'">{{ errorMessage }}</p>
+        <p v-if="status === 'loading'">Reading photo, approx 2 mins wait time</p>
+        <p v-if="status === 'done'">Done!</p>
         <div>
             <label for="recipe-name">Recipe Name: </label>
             <input id="recipe-name" type="text" v-model="recipeStore.draftRecipeName" placeholder="Recipe Name" />
@@ -187,7 +190,6 @@ const editDraft = ref<Recipe | null>(null)
 const editSubFormIngredientId = ref<number | null>(null)
 const editSubFormCookingQuantity = ref(1)
 const editSubFormCookingUnit = ref('')
-
 const allowedUnits = computed(() => unitForIngredient(newIngredientId.value))
 const editingIngredientIndex = ref<number | null>(null)
 const editingIngredientDraft = ref({
@@ -196,7 +198,8 @@ const editingIngredientDraft = ref({
     unit: ''
 })
 const editAllowedUnits = computed(() => unitForIngredient(editingIngredientDraft.value.ingredientId))
-
+const status = ref<'idle' | 'loading' | 'error' | 'done'>('idle')
+const errorMessage = ref('')
 
 function editRecipeIngredient(index: number) {
     const ingredient =  recipeStore.draftRecipeIngredients[index]
@@ -383,6 +386,8 @@ async function runOCR(event: Event){
     const photo = files[0]
     const formData = new FormData()
     if(!photo) return
+    status.value = 'loading'
+    errorMessage.value = ''
 
     try{
         formData.append('file', photo)
@@ -393,22 +398,27 @@ async function runOCR(event: Event){
         
         if(!response.ok) 
         {
-            console.log("Sorry Bad Connection, Try again later")
+            errorMessage.value = "Sorry Bad Connection, Try again later"
+            status.value = 'error'
             return
         }
 
         const data = await response.json()
         if(data.lines.length === 0) 
         {
-            console.log("Cannot read picture, please retake and try again")
+            errorMessage.value = "Cannot read picture, please retake and try again"
+            status.value = 'error'
             return
         }
         console.log(data.lines)
+        status.value = 'done'
+        setTimeout(() => { status.value = 'idle'}, 3000)
 
 
 
     } catch {
-        console.log("Unknown Error. Please try again later.")
+        errorMessage.value = "Something went wrong on our end. Please try again later."
+        status.value = 'error'
     }
 }
 </script>
