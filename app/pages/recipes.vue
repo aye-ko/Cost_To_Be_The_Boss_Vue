@@ -383,17 +383,34 @@ async function runOCR(event: Event){
     const photo = files[0]
     const formData = new FormData()
     if(!photo) return
-    formData.append('file', photo)
-    const response = await fetch(`${config.public.apiBase}/ocr`, {
-        method: 'POST',
-        body: formData
-    
-    })
-    const data = await response.json()
-    console.log(data.lines)
 
+    try{
+        formData.append('file', photo)
+        const response = await fetch(`${config.public.apiBase}/ocr`, {
+            method: 'POST',
+            body: formData    
+        })
+        
+        if(!response.ok) 
+        {
+            console.log("Sorry Bad Connection, Try again later")
+            return
+        }
+
+        const data = await response.json()
+        if(data.lines.length === 0) 
+        {
+            console.log("Cannot read picture, please retake and try again")
+            return
+        }
+        console.log(data.lines)
+
+
+
+    } catch {
+        console.log("Unknown Error. Please try again later.")
+    }
 }
-
 </script>
 
 <style scoped>
