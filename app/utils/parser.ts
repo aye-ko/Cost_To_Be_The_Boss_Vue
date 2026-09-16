@@ -8,6 +8,7 @@ export interface ParseResult {
     quantity: number | null 
     warnings: string[]
     reason?: string
+    raw:string
 
 }
 
@@ -68,10 +69,12 @@ const nonMeasurableUnits = [
     'smidgen'
 ]
 
+
 const glyphPattern = new RegExp(`(\\d+)? ?([${Object.keys(glyphs).join('')}])`,'g')
 const slashFractionPattern = /(\d+)? ?(\d+)\/(\d+)/g
-export function parseIngredientLine(line: string): ParseResult {
 
+export function parseIngredientLine(line: string): ParseResult {
+    line = line.replace(/^[\s•\-:]+/, '')
     const cleanedLine = line.toLowerCase()
     .replace(glyphPattern,(match, whole, glyph) =>{
         const base = whole ? Number(whole) : 0
@@ -90,36 +93,39 @@ export function parseIngredientLine(line: string): ParseResult {
     const quantity = Number(words[0])
     if(Number.isNaN(quantity)) {
         return {verdict: 'refused', unit: null, quantity: null, 
-            nameGuess: null, warnings: [], reason: 'no quantity found'}
+            nameGuess: null, warnings: [], reason: 'no quantity found', raw: line}
     }
 
     if (words.length === 2) {
         const name = words[1]
-        if (name === undefined) {return {verdict: 'refused', unit: null, quantity: null, 
+        if (name === undefined) {return {verdict: 'refused', unit: null, quantity: null, raw: line,
             nameGuess: null, warnings: [], reason: 'no name found'}}
-        return {verdict: 'warning', unit: 'each', quantity: quantity, 
-            nameGuess: name, warnings: ['no unit specified']}
+        return {
+            verdict: 'warning', unit: 'each', quantity: quantity, 
+            nameGuess: name, warnings: ['no unit specified'],  raw: line
+        }
         
     }
 
     if (words.length < 2) {
         return {verdict: 'refused', unit: null , quantity: null, 
-            nameGuess: null, warnings: [], reason: 'too short to parse. not enough words'}
+            nameGuess: null, warnings: [], reason: 'too short to parse. not enough words', raw: line}
     }
 
     const unitWords = words[1]
     if (unitWords === undefined){
         return {verdict: 'refused', unit: null, quantity: null, 
-            nameGuess: null, warnings: [], reason: 'no unit found'}
+            nameGuess: null, warnings: [], reason: 'no unit found', raw: line
+        }
     } 
     if (unitWords.startsWith('(')){
         return {verdict:'refused', unit: null, quantity: null,
-            nameGuess: null, warnings: [], reason: 'parenthesis found, deferred'
+            nameGuess: null, warnings: [], reason: 'parenthesis found, deferred', raw: line
         }
     }
     if (nonMeasurableUnits.includes(unitWords)) {
         return {verdict: 'refused', unit: null, quantity:null,
-            nameGuess: null, warnings: [], reason:`non-measurable unit: ${unitWords}`
+            nameGuess: null, warnings: [], reason:`non-measurable unit: ${unitWords}`, raw: line
         }
     }
 
@@ -127,10 +133,13 @@ export function parseIngredientLine(line: string): ParseResult {
     if(!units.includes(unit)) {
         unit = unit.endsWith('s') ? unit.slice(0, -1) : unit
         if (!units.includes(unit)) {
-        return {verdict: 'warning', unit: 'each', quantity: quantity, 
-            nameGuess: words.slice(1).filter(word=> word !=='of').join(' '), warnings: ['no unit specified']}
-        } 
-    }
+
+        return {
+            verdict: 'warning', unit: 'each', quantity: quantity, 
+            nameGuess: words.slice(1).filter(word=> word !=='of').join(' '), warnings: ['no unit specified'], raw: line
+        }
+    } 
+}
 
     const nameGuess = words.slice(2).filter(word => word !== 'of').join(' ')
 
@@ -140,6 +149,7 @@ export function parseIngredientLine(line: string): ParseResult {
         quantity: quantity,
         nameGuess: nameGuess,
         warnings: [],
+        raw: line
         
     }
 
