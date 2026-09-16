@@ -25,7 +25,7 @@
             <input id= "batches-per-month" type="number" v-model.number="recipeStore.draftRecipeHoursPerBatch" min="1" placeholder="Batches per Month" />
         </div>
         <div>
-            <h3>Upload File(PNG only)</h3>
+            <h3>Upload File(PNG or JPG only)</h3>
             <input type="file" accept="image/*" @change="runOCR">
             <p v-if="status === 'error'">{{ errorMessage }}</p>
             <p v-if="status === 'loading'">Reading photo, approx 2 mins wait time</p>
