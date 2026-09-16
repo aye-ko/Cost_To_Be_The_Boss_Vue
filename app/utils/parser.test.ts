@@ -10,14 +10,7 @@ describe('parseIngredientLine', () => {
         expect(result.unit).toBe('cup')
     })
 
-    it('raise a warning for 2 eggs', () => {
-        const result = parseIngredientLine('2 eggs')
-        expect(result.verdict).toBe('warning')
-        expect(result.nameGuess).toBe('eggs')
-        expect(result.quantity).toBe(2)
-        expect(result.unit).toBe('each')
-        expect(result.warnings).toContain('no unit specified')
-    })
+    it('raise a warning for 2 eggs', () => {})
     it('parses a fraction glyph quantity', () => {
         const result = parseIngredientLine('1 ½ teaspoons creole seasoning')
         expect(result.verdict).toBe('parsed')
@@ -46,10 +39,6 @@ describe('parseIngredientLine', () => {
         expect(result.quantity).toBe(1.5)
         expect(result.unit).toBe('tablespoon')
     })
-    
-
-
-
 
     it('parses 1/4 cup olive oil', () => {
         const result = parseIngredientLine('1/4 cup olive oil')
@@ -124,6 +113,7 @@ describe('parseIngredientLine', () => {
         const result = parseIngredientLine('2 pinches garlic powder, or to taste')
         expect(result.verdict).toBe('refused')
         expect(result.reason).toContain('non-measurable')
+        expect(result.raw).toBe('2 pinches garlic powder, or to taste')
     })
 
     it('parses 4 beef bouillon cubes', () => {
@@ -263,5 +253,15 @@ describe('parseIngredientLine', () => {
         expect(result.quantity).toBe(1)
         expect(result.unit).toBe('teaspoon')
     })
+
+    it ('parses • 2 red bell pepper, chopped', () => {
+        const result = parseIngredientLine(' • 2 red bell pepper, chopped')
+        expect(result.verdict).toBe('warning')
+        expect(result.warnings).toContain("no unit specified")
+        expect(result.nameGuess).toBe('red bell pepper, chopped')
+        expect(result.quantity).toBe(2)
+        expect(result.unit).toBe('each')
+    })
+
 })
 

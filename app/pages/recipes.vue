@@ -2,10 +2,7 @@
     <div>
         <h2>Recipes</h2>
         <p>Create the Recipes</p>
-        <input type="file" accept="image/*" @change="runOCR">
-        <p v-if="status === 'error'">{{ errorMessage }}</p>
-        <p v-if="status === 'loading'">Reading photo, approx 2 mins wait time</p>
-        <p v-if="status === 'done'">Done!</p>
+
         <div>
             <label for="recipe-name">Recipe Name: </label>
             <input id="recipe-name" type="text" v-model="recipeStore.draftRecipeName" placeholder="Recipe Name" />
@@ -27,7 +24,35 @@
             <label for="batches-per-month">Batches per Month: </label>
             <input id= "batches-per-month" type="number" v-model.number="recipeStore.draftRecipeHoursPerBatch" min="1" placeholder="Batches per Month" />
         </div>
+        <div>
+            <h3>Upload File(either PDF, XLS, or PNG)</h3>
+            <input type="file" accept="image/*" @change="runOCR">
+            <p v-if="status === 'error'">{{ errorMessage }}</p>
+            <p v-if="status === 'loading'">Reading photo, approx 2 mins wait time</p>
+            <p v-if="status === 'done'">Done!</p>
+        </div>
+
+        <div>
+            <h3>Scanned Ingredients</h3>
+            <ul>
+                <li v-for="(result, index) in reviewResults" :key="index">
+                    {{ result.quantity }} {{ result.unit }} {{ result.nameGuess }}
+                    <span v-if="result.verdict === 'warning'"> check unit </span>
+                </li>
+            </ul>
         
+        </div>
+
+        <div>
+            <h3>Could Not Read These</h3>
+            <ul>
+                <li v-for="(result, index) in refusedResult" :key="index">
+                    {{ result.raw }}
+                </li>
+            </ul>
+        </div>
+
+
         <h3>Add an Ingredient</h3>
         <div>
             <label for="ingredient-name">Ingredient Name: </label>
@@ -176,6 +201,8 @@ import { useRecipesStore, type RecipeIngredient, type Recipe  } from '~/stores/r
 import { unitKind } from '~/utils/conversion'
 import  densities  from '~/data/densities.json'
 import { units } from '~/utils/units'
+import { parseIngredientLine, type ParseResult } from '~/utils/parser'
+import Results from './results.vue'
 
 const recipeStore = useRecipesStore()
 const pantryStore = usePantryStore()
@@ -191,12 +218,17 @@ const editSubFormIngredientId = ref<number | null>(null)
 const editSubFormCookingQuantity = ref(1)
 const editSubFormCookingUnit = ref('')
 const allowedUnits = computed(() => unitForIngredient(newIngredientId.value))
+const reviewResults = computed(() => parsedResults.value.filter(result => (result.verdict === 'parsed' || result.verdict === 'warning')))
+const refusedResult = computed(() => parsedResults.value.filter(result => (result.verdict === 'refused')))
+
 const editingIngredientIndex = ref<number | null>(null)
 const editingIngredientDraft = ref({
     ingredientId: null as number | null,
     quantity: 1,
     unit: ''
 })
+const parsedResults = ref<ParseResult[]>([])
+
 const editAllowedUnits = computed(() => unitForIngredient(editingIngredientDraft.value.ingredientId))
 const status = ref<'idle' | 'loading' | 'error' | 'done'>('idle')
 const errorMessage = ref('')
@@ -412,6 +444,9 @@ async function runOCR(event: Event){
         }
         console.log(data.lines)
         status.value = 'done'
+        parsedResults.value = data.lines.map(parseIngredientLine)
+        console.log(parsedResults.value)
+
         setTimeout(() => { status.value = 'idle'}, 3000)
 
 
