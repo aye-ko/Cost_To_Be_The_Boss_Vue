@@ -115,7 +115,6 @@ const matchedIngredients = computed(() => {
 const showList = ref(false)
 
 function selectIngredient(name: string) {
-    console.log('clicked:', name)
     newName.value = name
     showList.value = false
 }

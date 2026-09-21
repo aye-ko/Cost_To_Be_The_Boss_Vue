@@ -445,10 +445,8 @@ async function runOCR(event: Event){
             status.value = 'error'
             return
         }
-        console.log(data.lines)
         status.value = 'done'
         parsedResults.value = data.lines.map(parseIngredientLine)
-        console.log(parsedResults.value)
 
         setTimeout(() => { status.value = 'idle'}, 3000)
 
