@@ -38,8 +38,23 @@
                 <li v-for="(result, index) in reviewResults" :key="index">
                     {{ result.quantity }} {{ result.unit }} {{ result.nameGuess }}
                     <span v-if="result.verdict === 'warning'"> check unit </span>
-                    <button v-if="!isInDraft(result)" @click="acceptLine(result)">Add</button>
+                    <button v-if="!isInDraft(result)" @click="acceptLine(result, index)">Add To Pantry</button>
                     
+                    <div v-if="noMatchFormIndex === index" >
+                        <label >Name: <input v-model="newPantryName" placeholder="Ingredient Name" /> </label>
+                        <label>Quantity: <input v-model.number="newPantryQuantity" type="number"/></label>
+                        <label> Unit: 
+                            <select v-model="newPantryUnit">
+                                <option value="">-- Unit --</option>
+                                <option v-for="unit in units" :key="unit" :value="unit">
+                                {{ unit }}
+                                </option>
+                            </select>
+                        </label>
+                        <label>Cost/Price: <input v-model.number="newPantryCost" type="number"/></label>
+                        <button @click="saveNoMatch(result, index)">Save</button>
+
+                    </div>
                 </li>
             </ul>
         
@@ -223,8 +238,13 @@ const editSubFormCookingUnit = ref('')
 const allowedUnits = computed(() => unitForIngredient(newIngredientId.value))
 const reviewResults = computed(() => parsedResults.value.filter(result => (result.verdict === 'parsed' || result.verdict === 'warning')))
 const refusedResult = computed(() => parsedResults.value.filter(result => (result.verdict === 'refused')))
+const newPantryName = ref("")
+const newPantryQuantity = ref(0)
+const newPantryUnit = ref('')
+const newPantryCost = ref(0)
 
 const editingIngredientIndex = ref<number | null>(null)
+const noMatchFormIndex = ref<number | null>(null)
 const editingIngredientDraft = ref({
     ingredientId: null as number | null,
     quantity: 1,
@@ -458,10 +478,14 @@ async function runOCR(event: Event){
     }
 }
 
-function acceptLine(result: ParseResult) {
+function acceptLine(result: ParseResult, index:number) {
     const matchedId = matchPantry(result.nameGuess ?? '', pantryStore.ingredients)
     if(matchedId=== null) {
-        console.log('no match', result.nameGuess)
+        noMatchFormIndex.value = index
+        newPantryName.value = result.nameGuess ?? ''
+        newPantryQuantity.value = 0
+        newPantryUnit.value = ''
+        newPantryCost.value = 0
         return
     }
     recipeStore.draftRecipeIngredients.push({
@@ -478,6 +502,19 @@ function isInDraft(result: ParseResult) : boolean {
     return recipeStore.draftRecipeIngredients.some(row => row.ingredientId === matchedId)
 }
 
+function saveNoMatch(result: ParseResult, index: number) {
+    if (!newPantryName.value.trim() || newPantryQuantity.value <= 0 || !newPantryUnit.value || newPantryCost.value <= 0) {
+        alert('Please fill in name, quantity, unit, and cost')
+        return
+    }
+    const newId = pantryStore.addIngredient(newPantryName.value, newPantryQuantity.value, newPantryUnit.value, newPantryCost.value)
+    recipeStore.draftRecipeIngredients.push({
+        ingredientId: newId,
+        quantity: result.quantity ?? 1,
+        unit: result.unit ?? 'each'
+    })
+    noMatchFormIndex.value = null
+}
 
 </script>
 
@@ -486,5 +523,13 @@ label {
     display: inline-block;
     width: 150px;
     margin-top: 10px;
+}
+
+label {
+    display: inline-block;
+    margin-right: 0.75rem;
+}
+select {
+    margin-left: 0.25rem;
 }
 </style>

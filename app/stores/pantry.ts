@@ -43,16 +43,11 @@ export const usePantryStore = defineStore('pantry', () => {
     })
 
 
-    function addIngredient(name:string, quantity: number, unit: string, cost: number) {
-        // Add to the array
-    ingredients.value.push({
-        id: Date.now()+Math.random(),  // Simple unique ID
-        name: name.trim(),  // .trim() removes leading/trailing spaces
-        quantity: quantity,
-        unit: unit,
-        cost: cost
-    })
+    function addIngredient(name: string, quantity: number, unit: string, cost: number): number {
+    const id = Date.now() + Math.random()
+    ingredients.value.push({ id, name: name.trim(), quantity, unit, cost })
     saveToLocalStorage()
+    return id
 }
     function removeIngredient(id:number) {
         // Remove from the array
