@@ -38,7 +38,7 @@
                 <li v-for="(result, index) in reviewResults" :key="index">
                     {{ result.quantity }} {{ result.unit }} {{ result.nameGuess }}
                     <span v-if="result.verdict === 'warning'"> check unit </span>
-                    <button @click="acceptLine(result)">Add</button>
+                    <button v-if="!isInDraft(result)" @click="acceptLine(result)">Add</button>
                     
                 </li>
             </ul>
@@ -460,7 +460,22 @@ async function runOCR(event: Event){
 
 function acceptLine(result: ParseResult) {
     const matchedId = matchPantry(result.nameGuess ?? '', pantryStore.ingredients)
-    console.log(result.nameGuess, '->', matchedId)
+    if(matchedId=== null) {
+        console.log('no match', result.nameGuess)
+        return
+    }
+    recipeStore.draftRecipeIngredients.push({
+        ingredientId: matchedId,
+        quantity:result.quantity ?? 1,
+        unit: result.unit ?? 'each'
+    })
+
+}
+
+function isInDraft(result: ParseResult) : boolean {
+    const matchedId = matchPantry(result.nameGuess ?? '', pantryStore.ingredients)
+    if (matchedId === null) return false
+    return recipeStore.draftRecipeIngredients.some(row => row.ingredientId === matchedId)
 }
 
 
