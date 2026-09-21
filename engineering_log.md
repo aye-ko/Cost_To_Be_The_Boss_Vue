@@ -77,3 +77,5 @@ The ingredient parser with guards is live on vercel and the vercel website conne
 # feature/ocrFeedback
 completed
 add revert for the pictures if user wants it
+
+# use vision slm to parse images, the add function is added but when added it should automatically disappear for that ingredient
