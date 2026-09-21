@@ -38,6 +38,8 @@
                 <li v-for="(result, index) in reviewResults" :key="index">
                     {{ result.quantity }} {{ result.unit }} {{ result.nameGuess }}
                     <span v-if="result.verdict === 'warning'"> check unit </span>
+                    <button @click="acceptLine(result)">Add</button>
+                    
                 </li>
             </ul>
         
@@ -203,6 +205,7 @@ import  densities  from '~/data/densities.json'
 import { units } from '~/utils/units'
 import { parseIngredientLine, type ParseResult } from '~/utils/parser'
 import Results from './results.vue'
+import { matchPantry } from '~/utils/matchPantry'
 
 const recipeStore = useRecipesStore()
 const pantryStore = usePantryStore()
@@ -456,6 +459,13 @@ async function runOCR(event: Event){
         status.value = 'error'
     }
 }
+
+function acceptLine(result: ParseResult) {
+    const matchedId = matchPantry(result.nameGuess ?? '', pantryStore.ingredients)
+    console.log(result.nameGuess, '->', matchedId)
+}
+
+
 </script>
 
 <style scoped>
