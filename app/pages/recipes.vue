@@ -26,7 +26,7 @@
         </div>
         <div>
             <h3>Upload File(PNG or JPG only)</h3>
-            <input type="file" accept="image/*" @change="runOCR">
+            <input type="file" accept="image/*" @change="runOCR" ref="fileInput">
             <p v-if="status === 'error'">{{ errorMessage }}</p>
             <p v-if="status === 'loading'">Reading photo, approx 2 mins wait time</p>
             <p v-if="status === 'done'">Done!</p>
@@ -41,16 +41,25 @@
                     <button v-if="!isInDraft(result)" @click="acceptLine(result, index)">Add To Pantry</button>
                     
                     <div v-if="noMatchFormIndex === index" >
-                        <label >Name: <input v-model="newPantryName" placeholder="Ingredient Name" /> </label>
-                        <label>Quantity: <input v-model.number="newPantryQuantity" type="number"/></label>
-                        <label> Unit: 
-                            <select v-model="newPantryUnit">
-                                <option value="">-- Unit --</option>
+                        <label >
+                            Name: 
+                            <input v-model="newPantryName" placeholder="Ingredient Name" /> 
+                        </label>
+
+                        <label>
+                            Quantity: 
+                            <input v-model.number="newPantryQuantity" type="number"/>
+                        </label>
+
+                        <label>Unit: 
+                            <select id="unit" v-model="newPantryUnit">
+                                <option value=""></option>
                                 <option v-for="unit in units" :key="unit" :value="unit">
                                 {{ unit }}
                                 </option>
                             </select>
                         </label>
+                        
                         <label>Cost/Price: <input v-model.number="newPantryCost" type="number"/></label>
                         <button @click="saveNoMatch(result, index)">Save</button>
 
@@ -236,12 +245,13 @@ const editSubFormIngredientId = ref<number | null>(null)
 const editSubFormCookingQuantity = ref(1)
 const editSubFormCookingUnit = ref('')
 const allowedUnits = computed(() => unitForIngredient(newIngredientId.value))
-const reviewResults = computed(() => parsedResults.value.filter(result => (result.verdict === 'parsed' || result.verdict === 'warning')))
-const refusedResult = computed(() => parsedResults.value.filter(result => (result.verdict === 'refused')))
+const reviewResults = computed(() => recipeStore.parsedResults.filter(result => (result.verdict === 'parsed' || result.verdict === 'warning')))
+const refusedResult = computed(() => recipeStore.parsedResults.filter(result => (result.verdict === 'refused')))
 const newPantryName = ref("")
 const newPantryQuantity = ref(0)
 const newPantryUnit = ref('')
 const newPantryCost = ref(0)
+const fileInput = ref<HTMLInputElement | null>(null)
 
 const editingIngredientIndex = ref<number | null>(null)
 const noMatchFormIndex = ref<number | null>(null)
@@ -250,7 +260,7 @@ const editingIngredientDraft = ref({
     quantity: 1,
     unit: ''
 })
-const parsedResults = ref<ParseResult[]>([])
+
 
 const editAllowedUnits = computed(() => unitForIngredient(editingIngredientDraft.value.ingredientId))
 const status = ref<'idle' | 'loading' | 'error' | 'done'>('idle')
@@ -311,7 +321,9 @@ function resetForm() {
     recipeStore.draftRecipeIngredients = []
     recipeStore.draftRecipeHoursPerBatch = 1
     recipeStore.draftRecipeProfitMargin = 0.30
-    recipeStore.draftRecipeHoursPerBatch = 1
+    recipeStore.draftRecipeBatchesPerMonth = 1
+    recipeStore.parsedResults = []
+    if(fileInput.value) fileInput.value.value = ''
 }
 
 function resetSubForm() {
@@ -466,7 +478,7 @@ async function runOCR(event: Event){
             return
         }
         status.value = 'done'
-        parsedResults.value = data.lines.map(parseIngredientLine)
+        recipeStore.parsedResults = data.lines.map(parseIngredientLine)
 
         setTimeout(() => { status.value = 'idle'}, 3000)
 

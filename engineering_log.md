@@ -83,3 +83,5 @@ add revert for the pictures if user wants it
 today's rulings and catches: push-mirrors-manual, the live-check design (and why your delete-requirement forced it over a flag), the double-click receipt, ingredientID's one-letter lesson.
 
 did not fix the issue with the Unit label will research and fix it later
+
+the migration map (shelf to store, readers re-aimed, Pinia's .value unwrapping), watch/load pattern reused, the sweep-on-Add-Recipe design and the double-.value file-input trick, the resetForm twin fixed, the addRecipe twin ledgered as an open bug (the double HoursPerBatch argument — image 5's "100 Hours/100 Batches" twins as evidence; own session, with a test)

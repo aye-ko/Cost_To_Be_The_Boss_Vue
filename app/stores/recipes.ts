@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, onMounted, watch } from 'vue'
-
+import { type ParseResult } from '~/utils/parser'
 export interface RecipeIngredient {
     ingredientId: number,
     quantity: number,
@@ -27,6 +27,7 @@ export const useRecipesStore = defineStore('recipes', () => {
     const draftRecipeProfitMargin = ref<number>(0.30)
     const draftRecipeBatchesPerMonth = ref<number>(1)
     const draftRecipeIngredients = ref<RecipeIngredient[]>([])
+    const parsedResults = ref<ParseResult[]>([])
 
     function loadFromLocalStorage() {
         if (typeof window === 'undefined') {
@@ -38,6 +39,18 @@ export const useRecipesStore = defineStore('recipes', () => {
         } else {
             return JSON.parse(storedRecipes)
         }   
+    }
+
+    function loadScanFromLocalStorage() {
+        if (typeof window === 'undefined') {
+            return null
+        }
+        const scan = localStorage.getItem('scannedResults')
+        if (scan === null) { 
+            return null
+        } else {
+            return JSON.parse(scan)
+        }
     }
 
     function loadDraftFromLocalStorage() {
@@ -74,6 +87,10 @@ export const useRecipesStore = defineStore('recipes', () => {
             draftRecipeBatchesPerMonth.value = draftLoaded.batchesPerMonth ?? 1
             draftRecipeIngredients.value = draftLoaded.ingredients ?? []
         }
+        const scanLoaded = loadScanFromLocalStorage()
+        if (scanLoaded) {
+            parsedResults.value = scanLoaded
+        }
     })
 
     watch([
@@ -100,6 +117,14 @@ export const useRecipesStore = defineStore('recipes', () => {
         }
 
         , { deep: true }
+    )
+    
+    watch(parsedResults, () =>{
+        if (typeof window === 'undefined') {
+            return
+        }
+        localStorage.setItem('scannedResults', JSON.stringify(parsedResults.value))
+    }, {deep: true}
     )
 
     function addRecipe(name: string, ingredients: RecipeIngredient[], servingsPerBatch: number, hoursPerBatch: number, profitMargin: number, batchesPerMonth: number) {
@@ -146,7 +171,8 @@ export const useRecipesStore = defineStore('recipes', () => {
         draftRecipeIngredients,
         addRecipe,
         removeRecipe,
-        updateRecipe
+        updateRecipe,
+        parsedResults
     }
 
 })   
