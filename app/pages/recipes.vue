@@ -7,14 +7,17 @@
             <label for="recipe-name">Recipe Name: </label>
             <input id="recipe-name" type="text" v-model="recipeStore.draftRecipeName" placeholder="Recipe Name" />
         </div>
+
         <div>
             <label for="servings-per-batch">Servings per Batch: </label>
             <input id = "servings-per-batch" type="number" v-model.number="recipeStore.draftRecipeServingsPerBatch" min="1" placeholder="Servings per Batch" />
         </div>
+
         <div>
             <label for="hours-per-batch">Hours per Batch: </label>
             <input id = "hours-per-batch" type="number" v-model.number="recipeStore.draftRecipeHoursPerBatch" min="0" placeholder="Hours per Batch" />
         </div>
+
         <div>
             <label for="profit-margin">Profit Margin: </label>
             <input id= "profit-margin" type="number" v-model.number="recipeStore.draftRecipeProfitMargin" min="0" max="1" step="0.01" placeholder="Profit Margin (e.g. 0.30 for 30%)" />    
@@ -22,7 +25,7 @@
 
         <div>
             <label for="batches-per-month">Batches per Month: </label>
-            <input id= "batches-per-month" type="number" v-model.number="recipeStore.draftRecipeHoursPerBatch" min="1" placeholder="Batches per Month" />
+            <input id= "batches-per-month" type="number" v-model.number="recipeStore.draftRecipeBatchesPerMonth" min="1" placeholder="Batches per Month" />
         </div>
         <div>
             <h3>Upload File(PNG or JPG only)</h3>
@@ -339,12 +342,12 @@ function resetSubForm() {
 function addRecipe() {
     // Validate 
 
-    if (!recipeStore.draftRecipeName.trim() ||recipeStore.draftRecipeServingsPerBatch < 1 || recipeStore.draftRecipeIngredients.length === 0 || recipeStore.draftRecipeHoursPerBatch <=0 || recipeStore.draftRecipeProfitMargin < 0 || recipeStore.draftRecipeProfitMargin >= 1 || recipeStore.draftRecipeHoursPerBatch < 1) {
+    if (!recipeStore.draftRecipeName.trim() ||recipeStore.draftRecipeServingsPerBatch < 1 || recipeStore.draftRecipeIngredients.length === 0 || recipeStore.draftRecipeHoursPerBatch <=0 || recipeStore.draftRecipeProfitMargin < 0 || recipeStore.draftRecipeProfitMargin >= 1 || recipeStore.draftRecipeBatchesPerMonth < 1) {
         alert('Please enter a valid recipe name and at least 1 serving per batch before adding a recipe, and ensure at least one ingredient is added.')
         return
     }
 
-    recipeStore.addRecipe(recipeStore.draftRecipeName, recipeStore.draftRecipeIngredients, recipeStore.draftRecipeServingsPerBatch, recipeStore.draftRecipeHoursPerBatch, recipeStore.draftRecipeProfitMargin, recipeStore.draftRecipeHoursPerBatch)
+    recipeStore.addRecipe(recipeStore.draftRecipeName, recipeStore.draftRecipeIngredients, recipeStore.draftRecipeServingsPerBatch, recipeStore.draftRecipeHoursPerBatch, recipeStore.draftRecipeProfitMargin, recipeStore.draftRecipeBatchesPerMonth)
     resetForm()
 }
 
