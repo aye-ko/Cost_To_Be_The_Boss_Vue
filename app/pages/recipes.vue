@@ -41,17 +41,18 @@
                     <button v-if="!isInDraft(result)" @click="acceptLine(result, index)">Add To Pantry</button>
                     
                     <div v-if="noMatchFormIndex === index" >
-                        <label >
+                        <label class="scan-form-label">
                             Name: 
                             <input v-model="newPantryName" placeholder="Ingredient Name" /> 
                         </label>
 
-                        <label>
+                        <label class="scan-form-label">
                             Quantity: 
                             <input v-model.number="newPantryQuantity" type="number"/>
                         </label>
 
-                        <label>Unit: 
+                        <label class="scan-form-label">
+                            Unit: 
                             <select id="unit" v-model="newPantryUnit">
                                 <option value=""></option>
                                 <option v-for="unit in units" :key="unit" :value="unit">
@@ -60,7 +61,10 @@
                             </select>
                         </label>
                         
-                        <label>Cost/Price: <input v-model.number="newPantryCost" type="number"/></label>
+                        <label class="scan-form-label">
+                            Cost/Price: 
+                            <input v-model.number="newPantryCost" type="number"/>
+                        </label>
                         <button @click="saveNoMatch(result, index)">Save</button>
 
                     </div>
@@ -535,13 +539,12 @@ label {
     display: inline-block;
     width: 150px;
     margin-top: 10px;
-}
-
-label {
-    display: inline-block;
     margin-right: 0.75rem;
 }
-select {
-    margin-left: 0.25rem;
+
+.scan-form-label {
+    width:auto;
+    margin-right: 0.75rem;
 }
+
 </style>
