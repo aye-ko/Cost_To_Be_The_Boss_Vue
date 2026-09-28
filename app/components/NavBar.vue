@@ -10,6 +10,9 @@
             <li>
                 <NuxtLink to="/results">Results</NuxtLink>
             </li>
+            <li>
+                <NuxtLink to="/scaling"> Calculator</NuxtLink>
+            </li>
         </ul>
     </nav>
 
